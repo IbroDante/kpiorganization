@@ -1,0 +1,946 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Enhanced Navbar with gradient -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-lg" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); backdrop-filter: blur(10px);">
+    <div class="container">
+        <a class="navbar-brand fw-bold fs-3 d-flex align-items-center" href="#home">
+            <div class="gradient-circle me-2"></div>
+            <span class="gradient-text">KPI Organization</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link hover-effect" href="#home"><i class="bi bi-house-door me-1"></i>Home</a></li>
+                <li class="nav-item"><a class="nav-link hover-effect" href="#about"><i class="bi bi-info-circle me-1"></i>About</a></li>
+                <li class="nav-item"><a class="nav-link hover-effect" href="#services"><i class="bi bi-gear me-1"></i>Services</a></li>
+                <li class="nav-item"><a class="nav-link hover-effect" href="#gallery"><i class="bi bi-images me-1"></i>Gallery</a></li>
+                <li class="nav-item"><a class="nav-link hover-effect" href="#contact"><i class="bi bi-envelope me-1"></i>Contact</a></li>
+                <li class="nav-item ms-2">
+                    <a href="#contact" class="btn btn-gradient btn-sm">Get Started</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Enhanced Hero with floating elements -->
+<section id="home" class="hero vh-100 d-flex align-items-center text-white position-relative overflow-hidden">
+    <div class="hero-bg" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);"></div>
+    <div id="particles-js" class="position-absolute w-100 h-100 top-0 start-0"></div>
+    
+    <!-- Floating elements -->
+    <div class="floating-element element-1"></div>
+    <div class="floating-element element-2"></div>
+    <div class="floating-element element-3"></div>
+    
+    <div class="container text-center position-relative">
+        <div class="hero-badge mb-4" data-aos="fade-down">
+            <span class="badge bg-gradient">Innovation Since 2025</span>
+        </div>
+        <h1 data-aos="zoom-in" class="display-3 fw-bold mb-4 gradient-text">Transforming Businesses with <span class="typing-text"></span></h1>
+        <p data-aos="fade-up" data-aos-delay="200" class="lead fs-4 opacity-75 mb-5">We deliver cutting-edge technology solutions that drive growth, enhance security, and optimize operations for forward-thinking organizations.</p>
+        <div class="d-flex justify-content-center gap-3" data-aos="fade-up" data-aos-delay="400">
+            <a href="#services" class="btn btn-gradient btn-lg px-4">
+                <i class="bi bi-rocket-takeoff me-2"></i>Explore Services
+            </a>
+            <a href="#contact" class="btn btn-outline-cyan btn-lg px-4">
+                <i class="bi bi-chat-dots me-2"></i>Get Free Consultation
+            </a>
+        </div>
+        
+        <!-- Stats counter -->
+        <div class="row mt-5 pt-5" data-aos="fade-up" data-aos-delay="600">
+            <div class="col-md-3 col-6">
+                <div class="stat-card">
+                    <h3 class="counter" data-target="250">0</h3>
+                    <p>Projects Completed</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="stat-card">
+                    <h3 class="counter" data-target="50">0</h3>
+                    <p>Expert Team</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="stat-card">
+                    <h3 class="counter" data-target="99">0</h3>
+                    <p>Client Satisfaction</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="stat-card">
+                    <h3 class="counter" data-target="7">0</h3>
+                    <p>Years Experience</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="800">
+        <a href="#about" class="scroll-down">
+            <i class="bi bi-chevron-down"></i>
+        </a>
+    </div>
+</section>
+
+<!-- Enhanced About with tabs -->
+<section id="about" class="py-5 bg-dark">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <span class="section-subtitle" data-aos="fade-down">ABOUT COMPANY</span>
+                <h2 data-aos="fade-down" class="display-4 mb-4 gradient-text">Pioneering Digital Transformation</h2>
+                <p class="lead" data-aos="fade-up">We combine innovation with expertise to deliver solutions that matter.</p>
+            </div>
+        </div>
+        
+        <div class="row align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="about-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="KPI Team" class="img-fluid rounded-3 shadow-lg">
+                    <div class="floating-badge">
+                        <i class="bi bi-award"></i>
+                        <span>Industry Leader</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <!-- Tab navigation -->
+                <ul class="nav nav-tabs mb-4" id="aboutTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="mission-tab" data-bs-toggle="tab" data-bs-target="#mission">Mission</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="vision-tab" data-bs-toggle="tab" data-bs-target="#vision">Vision</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="values-tab" data-bs-toggle="tab" data-bs-target="#values">Values</button>
+                    </li>
+                </ul>
+                
+                <!-- Tab content -->
+                <div class="tab-content" id="aboutTabContent">
+                    <div class="tab-pane fade show active" id="mission" role="tabpanel">
+                        <h3 class="mb-3">Our Mission</h3>
+                        <p class="lead mb-4">To empower businesses through innovative technology solutions that drive efficiency, security, and growth.</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-cyan me-2"></i>Deliver cutting-edge cybersecurity solutions</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-cyan me-2"></i>Automate complex business processes</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-cyan me-2"></i>Provide actionable data insights</li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="vision" role="tabpanel">
+                        <h3 class="mb-3">Our Vision</h3>
+                        <p>To be the leading global partner for digital transformation, recognized for innovation and excellence.</p>
+                    </div>
+                    <div class="tab-pane fade" id="values" role="tabpanel">
+                        <h3 class="mb-3">Core Values</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-star-fill text-cyan me-2"></i>Innovation & Creativity</li>
+                            <li class="mb-2"><i class="bi bi-star-fill text-cyan me-2"></i>Integrity & Transparency</li>
+                            <li class="mb-2"><i class="bi bi-star-fill text-cyan me-2"></i>Client Success Focus</li>
+                            <li class="mb-2"><i class="bi bi-star-fill text-cyan me-2"></i>Continuous Learning</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Enhanced Services Section -->
+<section id="services" class="py-5 position-relative overflow-hidden">
+    <!-- Background elements -->
+    <div class="service-bg-elements">
+        <div class="bg-element-1"></div>
+        <div class="bg-element-2"></div>
+        <div class="bg-element-3"></div>
+    </div>
+    
+    <div class="container position-relative">
+        <!-- Section Header -->
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center" data-aos="fade-down">
+                <span class="section-badge">OUR EXPERTISE</span>
+                <h2 class="display-4 mb-3 gradient-text">Comprehensive Technology Solutions</h2>
+                <p class="lead text-white-50">We deliver innovative services that transform businesses and drive growth through cutting-edge technology.</p>
+            </div>
+        </div>
+
+        <!-- Services Tabs Navigation -->
+        <div class="row mb-4" data-aos="fade-up">
+            <div class="col-12">
+                <div class="services-nav d-flex justify-content-center flex-wrap gap-2">
+                    <button class="service-nav-btn active" data-category="all">All Services</button>
+                    <button class="service-nav-btn" data-category="security">Security</button>
+                    <button class="service-nav-btn" data-category="automation">Automation</button>
+                    <button class="service-nav-btn" data-category="data">Data</button>
+                    <button class="service-nav-btn" data-category="consulting">Consulting</button>
+                    <button class="service-nav-btn" data-category="training">Training</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Grid -->
+        <div class="row g-4 services-grid">
+            <!-- Cybersecurity -->
+            <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-category="security">
+                <div class="service-card-enhanced">
+                    <div class="service-image-wrapper">
+                        <img src="https://thumbs.dreamstime.com/b/glowing-futuristic-shield-hologram-symbolizing-antivirus-protection-cybersecurity-defense-digital-security-concept-neon-404321196.jpg" 
+                             class="service-img" alt="Cybersecurity">
+                        <div class="service-overlay">
+                            <span class="service-badge">Most Popular</span>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h3 class="service-title">Cybersecurity Solutions</h3>
+                        <p class="service-description">Advanced threat detection, secure infrastructure, and comprehensive protection for your digital assets.</p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check-circle"></i> Real-time threat monitoring</li>
+                            <li><i class="bi bi-check-circle"></i> Penetration testing</li>
+                            <li><i class="bi bi-check-circle"></i> Compliance management</li>
+                        </ul>
+                        <div class="service-footer">
+                            <a href="#contact" class="service-cta">
+                                Get Protected <i class="bi bi-arrow-right"></i>
+                            </a>
+                            <div class="service-tags">
+                                <span class="tag">Security</span>
+                                <span class="tag">Enterprise</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Automation -->
+            <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100" data-category="automation">
+                <div class="service-card-enhanced">
+                    <div class="service-image-wrapper">
+                        <img src="https://www.kuka.com/-/media/kuka-corporate/images/future-production/automatisation/ai-automation/ai-automation-at-kuka.jpg?rev=70579f13495d435cb073a89b82584632&w=1900&hash=F1023EC90C9F7B7991D98FD66AC6713C" 
+                             class="service-img" alt="Automation">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="bi bi-robot"></i>
+                        </div>
+                        <h3 class="service-title">AI & Automation</h3>
+                        <p class="service-description">Intelligent automation solutions that streamline processes and boost operational efficiency.</p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check-circle"></i> Process automation</li>
+                            <li><i class="bi bi-check-circle"></i> RPA implementation</li>
+                            <li><i class="bi bi-check-circle"></i> Workflow optimization</li>
+                        </ul>
+                        <div class="service-footer">
+                            <a href="#contact" class="service-cta">
+                                Automate Now <i class="bi bi-arrow-right"></i>
+                            </a>
+                            <div class="service-tags">
+                                <span class="tag">AI</span>
+                                <span class="tag">Efficiency</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Analysis -->
+            <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200" data-category="data">
+                <div class="service-card-enhanced">
+                    <div class="service-image-wrapper">
+                        <img src="https://dashthis.com/media/5100/12-google-analytics-template.png" 
+                             class="service-img" alt="Data Analysis">
+                        <div class="service-overlay">
+                            <span class="service-badge">Advanced</span>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="bi bi-bar-chart-line"></i>
+                        </div>
+                        <h3 class="service-title">Advanced Data Analytics</h3>
+                        <p class="service-description">Transform data into actionable insights with predictive analytics and business intelligence.</p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check-circle"></i> Predictive modeling</li>
+                            <li><i class="bi bi-check-circle"></i> Data visualization</li>
+                            <li><i class="bi bi-check-circle"></i> Real-time dashboards</li>
+                        </ul>
+                        <div class="service-footer">
+                            <a href="#contact" class="service-cta">
+                                Get Insights <i class="bi bi-arrow-right"></i>
+                            </a>
+                            <div class="service-tags">
+                                <span class="tag">Analytics</span>
+                                <span class="tag">BI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Services -->
+            <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300" data-category="consulting">
+                <div class="service-card-enhanced">
+                    <div class="service-image-wrapper">
+                        <img src="https://platinumdatarecovery.com/wp-content/uploads/2023/05/cloud-computing-diagram.webp" 
+                             class="service-img" alt="Technical Services">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="bi bi-cloud-arrow-up"></i>
+                        </div>
+                        <h3 class="service-title">Technical Consulting</h3>
+                        <p class="service-description">Expert guidance for cloud migration, IT infrastructure, and digital transformation strategies.</p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check-circle"></i> Cloud migration</li>
+                            <li><i class="bi bi-check-circle"></i> IT architecture</li>
+                            <li><i class="bi bi-check-circle"></i> Digital strategy</li>
+                        </ul>
+                        <div class="service-footer">
+                            <a href="#contact" class="service-cta">
+                                Consult Experts <i class="bi bi-arrow-right"></i>
+                            </a>
+                            <div class="service-tags">
+                                <span class="tag">Cloud</span>
+                                <span class="tag">IT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Training -->
+            <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="400" data-category="training">
+                <div class="service-card-enhanced">
+                    <div class="service-image-wrapper">
+                        <img src="https://www.mycomputercareer.edu/wp-content/uploads/2023/07/image1-6-1.png" 
+                             class="service-img" alt="Training">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="bi bi-mortarboard"></i>
+                        </div>
+                        <h3 class="service-title">Training & Certification</h3>
+                        <p class="service-description">Professional development courses and certifications in cutting-edge technologies.</p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check-circle"></i> Industry certifications</li>
+                            <li><i class="bi bi-check-circle"></i> Hands-on workshops</li>
+                            <li><i class="bi bi-check-circle"></i> Custom training programs</li>
+                        </ul>
+                        <div class="service-footer">
+                            <a href="#contact" class="service-cta">
+                                Start Learning <i class="bi bi-arrow-right"></i>
+                            </a>
+                            <div class="service-tags">
+                                <span class="tag">Education</span>
+                                <span class="tag">Certification</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contracting -->
+            <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="500" data-category="consulting">
+                <div class="service-card-enhanced">
+                    <div class="service-image-wrapper">
+                        <img src="https://rpcgeneralcontractor.com/wp-content/uploads/2023/08/construction-management-software.jpg" 
+                             class="service-img" alt="Contracting">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="bi bi-building-gear"></i>
+                        </div>
+                        <h3 class="service-title">Tech Project Management</h3>
+                        <p class="service-description">End-to-end technology project execution with agile methodologies and expert oversight.</p>
+                        <ul class="service-features">
+                            <li><i class="bi bi-check-circle"></i> Project planning</li>
+                            <li><i class="bi bi-check-circle"></i> Resource management</li>
+                            <li><i class="bi bi-check-circle"></i> Quality assurance</li>
+                        </ul>
+                        <div class="service-footer">
+                            <a href="#contact" class="service-cta">
+                                Start Project <i class="bi bi-arrow-right"></i>
+                            </a>
+                            <div class="service-tags">
+                                <span class="tag">PM</span>
+                                <span class="tag">Delivery</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Banner -->
+        <div class="row mt-5" data-aos="fade-up">
+            <div class="col-12">
+                <div class="service-cta-banner">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <h4 class="mb-2">Need a Custom Solution?</h4>
+                            <p class="mb-0">Let's discuss how we can tailor our services to meet your specific requirements.</p>
+                        </div>
+                        <div class="col-md-4 text-md-end">
+                            <a href="#contact" class="btn btn-gradient btn-lg">
+                                <i class="bi bi-chat-left-text me-2"></i>Get Free Consultation
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Enhanced Gallery Section -->
+<section id="gallery" class="py-5 position-relative overflow-hidden">
+    <!-- Background pattern -->
+    <div class="gallery-bg-pattern"></div>
+    
+    <div class="container position-relative">
+        <!-- Gallery Header -->
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center" data-aos="fade-down">
+                <span class="section-badge">OUR WORKSPACE</span>
+                <h2 class="display-4 mb-3 gradient-text">Innovation in Action</h2>
+                <p class="lead text-white-50">Explore our state-of-the-art facilities and the environment where innovation thrives.</p>
+            </div>
+        </div>
+
+        <!-- Gallery Navigation -->
+        <div class="row mb-4" data-aos="fade-up">
+            <div class="col-12">
+                <div class="gallery-nav d-flex justify-content-center flex-wrap gap-2">
+                    <button class="gallery-nav-btn active" data-category="all">All</button>
+                    <button class="gallery-nav-btn" data-category="office">Office Spaces</button>
+                    <button class="gallery-nav-btn" data-category="labs">Tech Labs</button>
+                    <button class="gallery-nav-btn" data-category="team">Team</button>
+                    <button class="gallery-nav-btn" data-category="events">Events</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="row g-3 gallery-grid" data-aos="fade-up">
+            <div class="col-lg-3 col-md-6 gallery-item" data-category="office">
+                <div class="gallery-card">
+                    <img src="https://www.shutterstock.com/image-illustration/modern-futuristic-interior-office-design-260nw-2120972219.jpg" 
+                         alt="Modern Tech Office" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <h5>Innovation Hub</h5>
+                            <p>Our main collaborative workspace</p>
+                            <button class="gallery-view-btn" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="https://www.shutterstock.com/image-illustration/modern-futuristic-interior-office-design-260nw-2120972219.jpg" data-title="Innovation Hub">
+                                <i class="bi bi-zoom-in"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 gallery-item" data-category="labs">
+                <div class="gallery-card">
+                    <img src="https://c8.alamy.com/comp/FWTXG3/futuristic-interior-view-FWTXG3.jpg" 
+                         alt="Tech Lab" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <h5>Research & Development Lab</h5>
+                            <p>Where ideas become reality</p>
+                            <button class="gallery-view-btn" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="https://c8.alamy.com/comp/FWTXG3/futuristic-interior-view-FWTXG3.jpg" data-title="Research & Development Lab">
+                                <i class="bi bi-zoom-in"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 gallery-item" data-category="office">
+                <div class="gallery-card">
+                    <img src="https://www.shutterstock.com/image-illustration/modern-scifi-futuristic-interior-office-260nw-2137507347.jpg" 
+                         alt="Futuristic Office" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <h5>Collaboration Zone</h5>
+                            <p>Brainstorming and innovation sessions</p>
+                            <button class="gallery-view-btn" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="https://www.shutterstock.com/image-illustration/modern-scifi-futuristic-interior-office-260nw-2137507347.jpg" data-title="Collaboration Zone">
+                                <i class="bi bi-zoom-in"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 gallery-item" data-category="team">
+                <div class="gallery-card">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Team Collaboration" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <h5>Team Collaboration</h5>
+                            <p>Working together on innovative projects</p>
+                            <button class="gallery-view-btn" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" data-title="Team Collaboration">
+                                <i class="bi bi-zoom-in"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Add more gallery items as needed -->
+        </div>
+
+        <!-- Enhanced Carousel -->
+        <div class="row mt-5" data-aos="fade-up">
+            <div class="col-12">
+                <div class="gallery-carousel-wrapper">
+                    <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="2"></button>
+                            <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="3"></button>
+                        </div>
+                        <div class="carousel-inner rounded-4">
+                            <div class="carousel-item active">
+                                <img src="https://images.stockcake.com/public/a/0/1/a011c301-7c84-4115-927a-22a1f6a8dede_large/futuristic-office-space-stockcake.jpg" 
+                                     class="d-block w-100" alt="Futuristic Office Space">
+                                <div class="carousel-caption">
+                                    <h5>Future-Ready Workspace</h5>
+                                    <p>Designed for innovation and collaboration</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
+                                     class="d-block w-100" alt="Technology Center">
+                                <div class="carousel-caption">
+                                    <h5>Technology Center</h5>
+                                    <p>Advanced infrastructure for cutting-edge solutions</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
+                                     class="d-block w-100" alt="Innovation Lab">
+                                <div class="carousel-caption">
+                                    <h5>Innovation Laboratory</h5>
+                                    <p>Where ideas are tested and perfected</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Tour -->
+        <div class="row mt-5" data-aos="fade-up">
+            <div class="col-12">
+                <div class="video-tour">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <h4 class="mb-3">Virtual Tour</h4>
+                            <p class="mb-4">Take a virtual tour of our facilities and see where innovation happens every day.</p>
+                            <a href="#" class="btn btn-outline-cyan">
+                                <i class="bi bi-play-circle me-2"></i>Watch Video Tour
+                            </a>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="video-preview">
+                                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
+                                     alt="Video Preview" class="video-thumbnail">
+                                <div class="video-overlay">
+                                    <button class="video-play-btn">
+                                        <i class="bi bi-play-fill"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Modal -->
+    <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="galleryModalLabel"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="modalImage" src="" class="img-fluid rounded" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-5 bg-dark">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <span class="section-subtitle" data-aos="fade-down">TESTIMONIALS</span>
+                <h2 data-aos="fade-down" class="display-4 mb-4 gradient-text">What Our Clients Say</h2>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-4" data-aos="fade-up">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="testimonial-img">
+                        <div>
+                            <h5>Michael Rodriguez</h5>
+                            <span>CTO, TechCorp</span>
+                        </div>
+                    </div>
+                    <p>"KPI transformed our security infrastructure. Their team is exceptional!"</p>
+                    <div class="stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more testimonials -->
+        </div>
+    </div>
+</section>
+
+<!-- Enhanced Contact with floating form -->
+<section id="contact" class="py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <span class="section-subtitle" data-aos="fade-down">GET IN TOUCH</span>
+                <h2 data-aos="fade-down" class="display-4 mb-4 gradient-text">Let's Start Your Project</h2>
+                <p class="lead" data-aos="fade-up">Contact us for a free consultation and proposal</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="bi bi-geo-alt"></i>
+                        <div>
+                            <h5>Our Location</h5>
+                            <p>123 Tech Street, Innovation City</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="bi bi-envelope"></i>
+                        <div>
+                            <h5>Email Us</h5>
+                            <p>contact@kpiorg.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="bi bi-phone"></i>
+                        <div>
+                            <h5>Call Us</h5>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="contact-form-wrapper">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            <div class="alert alert-success alert-dismissible fade show">
+                                {{ messages[0] }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+                    <form method="POST" class="contact-form">
+                        <div class="mb-3">
+                            <input type="text" name="name" class="form-control" placeholder="Full Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" name="email" class="form-control" placeholder="Email Address" required>
+                        </div>
+                        <div class="mb-3">
+                            <select name="service" class="form-select">
+                                <option value="">Select Service</option>
+                                <option value="cybersecurity">Cybersecurity</option>
+                                <option value="automation">Automation</option>
+                                <option value="data">Data Analysis</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <textarea name="message" class="form-control" rows="4" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-gradient w-100">
+                            <i class="bi bi-send me-2"></i>Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-darker text-white py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <h4 class="mb-4 gradient-text">KPI Organization</h4>
+                <p class="opacity-75">Leading the way in technology innovation and digital transformation.</p>
+                <div class="social-links mt-4">
+                    <a href="#"><i class="bi bi-twitter"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                    <a href="#"><i class="bi bi-github"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                </div>
+            </div>
+            <!-- Add footer links -->
+        </div>
+        <hr class="opacity-25">
+        <div class="text-center pt-4">
+            <p>&copy; 2025 KPI Organization. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Back to top button -->
+<button id="backToTop" class="btn btn-gradient back-to-top">
+    <i class="bi bi-chevron-up"></i>
+</button>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Enhanced particles
+    particlesJS("particles-js", {
+        particles: {
+            number: { value: 80, density: { enable: true, value_area: 800 } },
+            color: { value: "#00ffff" },
+            shape: { type: "circle" },
+            opacity: { value: 0.5, random: true },
+            size: { value: 3, random: true },
+            line_linked: { enable: true, distance: 150, color: "#00ffff", opacity: 0.4, width: 1 },
+            move: { enable: true, speed: 2, direction: "none", random: true }
+        }
+    });
+
+    // Typing effect
+    const typingText = document.querySelector('.typing-text');
+    const words = ['Technology', 'Innovation', 'Security', 'Automation', 'Data'];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+        const currentWord = words[wordIndex];
+        
+        if (!isDeleting && charIndex < currentWord.length) {
+            typingText.textContent += currentWord.charAt(charIndex);
+            charIndex++;
+            setTimeout(typeEffect, 100);
+        } else if (isDeleting && charIndex > 0) {
+            typingText.textContent = currentWord.substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(typeEffect, 50);
+        } else {
+            isDeleting = !isDeleting;
+            if (!isDeleting) {
+                wordIndex = (wordIndex + 1) % words.length;
+            }
+            setTimeout(typeEffect, 1200);
+        }
+    }
+    
+    // Start typing effect
+    setTimeout(typeEffect, 1000);
+
+    // Animated counter
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200;
+
+    counters.forEach(counter => {
+        const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            const inc = target / speed;
+
+            if (count < target) {
+                counter.innerText = Math.ceil(count + inc);
+                setTimeout(updateCount, 1);
+            } else {
+                counter.innerText = target;
+            }
+        };
+        updateCount();
+    });
+
+    // Back to top button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Navbar active state
+    window.addEventListener('scroll', () => {
+        let sections = document.querySelectorAll('section');
+        let navLinks = document.querySelectorAll('.nav-link');
+        sections.forEach((section, i) => {
+            if (section.getBoundingClientRect().top <= 100) {
+                navLinks.forEach(link => link.classList.remove('active'));
+                navLinks[i].classList.add('active');
+            }
+        });
+    });
+
+    // Form submission animation
+    const form = document.querySelector('form');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            const button = this.querySelector('button[type="submit"]');
+            button.innerHTML = '<i class="bi bi-arrow-clockwise spin"></i> Sending...';
+            button.disabled = true;
+        });
+    }
+
+    // Initialize tooltips
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+
+    // Services Filtering
+document.addEventListener('DOMContentLoaded', function() {
+    // Services filtering
+    const serviceFilterBtns = document.querySelectorAll('.service-nav-btn');
+    const serviceItems = document.querySelectorAll('.services-grid > div');
+    
+    serviceFilterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Update active button
+            serviceFilterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-category');
+            
+            // Filter items
+            serviceItems.forEach(item => {
+                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                    item.style.display = 'block';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    }, 100);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.8)';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
+    
+    // Gallery filtering
+    const galleryFilterBtns = document.querySelectorAll('.gallery-nav-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    galleryFilterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            galleryFilterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-category');
+            
+            galleryItems.forEach(item => {
+                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                    item.style.display = 'block';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    }, 100);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.8)';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
+    
+    // Gallery modal
+    const galleryModal = document.getElementById('galleryModal');
+    if (galleryModal) {
+        galleryModal.addEventListener('show.bs.modal', function(event) {
+            const button = event.relatedTarget;
+            const imageSrc = button.getAttribute('data-image');
+            const imageTitle = button.getAttribute('data-title');
+            
+            const modalTitle = galleryModal.querySelector('.modal-title');
+            const modalImage = galleryModal.querySelector('#modalImage');
+            
+            modalTitle.textContent = imageTitle;
+            modalImage.src = imageSrc;
+        });
+    }
+    
+    // Initialize carousel
+    const galleryCarousel = document.getElementById('galleryCarousel');
+    if (galleryCarousel) {
+        const carousel = new bootstrap.Carousel(galleryCarousel, {
+            interval: 3000,
+            wrap: true
+        });
+    }
+    
+    // Hover effects for service cards
+    const serviceCards = document.querySelectorAll('.service-card-enhanced');
+    serviceCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.zIndex = '10';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.zIndex = '1';
+        });
+    });
+});
+</script>
+{% endblock %}
