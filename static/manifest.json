@@ -1,0 +1,21 @@
+{
+    "name": "KPI Organization Nigeria Ltd",
+    "short_name": "KPI Organization",
+    "description": "Transforming Businesses with Technology Innovation",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0f172a",
+    "theme_color": "#00ffff",
+    "icons": [
+      {
+        "src": "/static/images/kpilogo.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/static/images/kpilogo.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
