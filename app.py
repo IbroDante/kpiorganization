@@ -10,6 +10,9 @@ def home():
         name = request.form['name']
         email = request.form['email']
         message = request.form['message']
+        # subject = request.form['subject']
+        service = request.form['service']
+
         flash('Thank you for your message! We will get back to you soon.', 'success')
     return render_template('index.html')
 

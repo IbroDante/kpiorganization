@@ -9,10 +9,11 @@
             <img class="w-16 h-16 rounded-full object-cover mr-4" src="static/images/kpilogo.png" alt="kpilogo" loading="lazy">
 
             <span class="gradient-text">KPI Organization Nigeria Ltd</span>
-        </a>
+            
+            <!-- Short name on mobile -->
+            <span class="gradient-text d-block d-lg-none">KPI Org Nig Ltd</span>
 
-        <!-- Short name on mobile -->
-            <span class="gradient-text d-block d-lg-none">KPI Org Ng Ltd</span>
+        </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
@@ -665,7 +666,7 @@
                         <i class="bi bi-envelope"></i>
                         <div>
                             <h5>Email Us</h5>
-                            <p>info@kpiorganization.com.ng</p>
+                            <p>info@kpiorganization.ng</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -973,5 +974,86 @@ if (window.innerWidth < 768) {
         particles: { number: { value: 30 }, move: { speed: 1 } } // Lighter on mobile
     });
 }
+
+// EmailJS Configuration for Contact Form
+(function() {
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        const contactForm = document.getElementById('contactForm');
+        
+        if (!contactForm) return;
+        
+        const formMessage = document.getElementById('formMessage');
+        const submitBtn = contactForm.querySelector('.btn-submit');
+        const btnText = submitBtn ? submitBtn.querySelector('.btn-text') : null;
+        const btnLoader = submitBtn ? submitBtn.querySelector('.btn-loader') : null;
+        
+        // Initialize EmailJS with your PUBLIC KEY
+        emailjs.init("ZaJKdyBLIegUigRzR"); // Replace with your actual public key
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            if (submitBtn) {
+                submitBtn.classList.add('loading');
+                if (btnText) btnText.style.opacity = '0';
+                if (btnLoader) btnLoader.style.opacity = '1';
+            }
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value,
+                to_email: 'mololuwa.ibrahim@gmail.com', // Your receiving email
+                from_name: document.getElementById('name').value,
+                reply_to: document.getElementById('email').value
+            };
+            
+            // Send email using EmailJS
+            emailjs.send('service_te29a47', 'template_6me6qrs', formData)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    showFormMessage('Message sent successfully! We\'ll get back to you soon.', 'success');
+                    contactForm.reset();
+                })
+                .catch(function(error) {
+                    console.error('FAILED...', error);
+                    showFormMessage('Failed to send message. Please try again or email us directly at info@kpiorganization.com.ng', 'error');
+                })
+                .finally(function() {
+                    // Reset button state
+                    if (submitBtn) {
+                        submitBtn.classList.remove('loading');
+                        if (btnText) btnText.style.opacity = '1';
+                        if (btnLoader) btnLoader.style.opacity = '0';
+                    }
+                });
+        });
+        
+        function showFormMessage(message, type) {
+            if (!formMessage) return;
+            
+            formMessage.textContent = message;
+            formMessage.className = 'form-message ' + type;
+            formMessage.style.display = 'block';
+            formMessage.style.opacity = '1';
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                formMessage.style.opacity = '0';
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                    formMessage.style.opacity = '1';
+                }, 300);
+            }, 5000);
+        }
+    });
+})();
 </script>
+
+
 {% endblock %}
