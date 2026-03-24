@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>SEC Nigeria Training | KPI Organization - Accredited Capacity Building Partner</title>
+    <!-- Bootstrap 5 + Icons + Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --sec-gold: #ffd966;
+            --sec-green: #00a86b;
+            --primary-cyan: #00e0ff;
+            --deep-navy: #0a1c2f;
+            --dark-bg: #07121c;
+            --card-bg: #0f2a3a;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: var(--dark-bg);
+            font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+            color: #eef4ff;
+            overflow-x: hidden;
+        }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0a1c2f; }
+        ::-webkit-scrollbar-thumb { background: #00e0ff; border-radius: 10px; }
+        
+        .gradient-text {
+            background: linear-gradient(120deg, #ffffff, #00e0ff, var(--sec-gold));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .btn-gradient {
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 12px 32px;
+            border-radius: 40px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,114,255,0.3);
+        }
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,224,255,0.5);
+            color: white;
+        }
+        .btn-outline-sec {
+            border: 2px solid var(--sec-gold);
+            background: transparent;
+            color: var(--sec-gold);
+            border-radius: 40px;
+            padding: 10px 28px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .btn-outline-sec:hover {
+            background: var(--sec-gold);
+            color: #0a1c2f;
+        }
+        .btn-outline-cyan {
+            border: 2px solid var(--primary-cyan);
+            background: transparent;
+            color: var(--primary-cyan);
+            border-radius: 40px;
+            padding: 10px 28px;
+            font-weight: 600;
+        }
+        .navbar {
+            background: rgba(7, 18, 28, 0.98);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,224,255,0.2);
+        }
+        .hero-sec {
+            background: radial-gradient(circle at 70% 20%, #0a2a3a, #030c14);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-badge {
+            background: linear-gradient(135deg, var(--sec-gold), #ffb347);
+            color: #0a1c2f;
+            font-weight: 700;
+            padding: 8px 20px;
+            border-radius: 40px;
+            display: inline-block;
+        }
+        .section-badge {
+            background: rgba(0,224,255,0.2);
+            padding: 5px 15px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: #00e0ff;
+            display: inline-block;
+        }
+        .sec-badge-gold {
+            background: linear-gradient(135deg, var(--sec-gold), #ffb347);
+            color: #0a1c2f;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+        .course-card {
+            background: rgba(10, 25, 40, 0.9);
+            backdrop-filter: blur(12px);
+            border-radius: 28px;
+            border: 1px solid rgba(0,224,255,0.25);
+            transition: all 0.4s;
+            height: 100%;
+            overflow: hidden;
+        }
+        .course-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--sec-gold);
+            box-shadow: 0 20px 35px -15px rgba(255,217,102,0.3);
+        }
+        .course-img {
+            height: 220px;
+            object-fit: cover;
+            width: 100%;
+        }
+        .badge-sec {
+            background: rgba(255,217,102,0.2);
+            color: var(--sec-gold);
+            border-radius: 30px;
+            padding: 4px 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .pill-date {
+            background: #1a3a4a;
+            border-radius: 30px;
+            padding: 4px 12px;
+            font-size: 0.7rem;
+            color: #00e0ff;
+        }
+        .location-tag {
+            color: #00e0ff;
+            font-size: 0.85rem;
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(8px);
+            border-radius: 24px;
+            padding: 20px;
+            border: 1px solid rgba(255,217,102,0.3);
+            transition: 0.3s;
+        }
+        .stat-card:hover {
+            border-color: var(--sec-gold);
+            transform: translateY(-5px);
+        }
+        .testimonial-card {
+            background: rgba(15,30,45,0.7);
+            border-radius: 24px;
+            padding: 28px;
+            border-left: 4px solid var(--sec-gold);
+        }
+        .contact-form-wrapper {
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            padding: 35px;
+            border-radius: 32px;
+            border: 1px solid rgba(0,224,255,0.3);
+        }
+        .footer {
+            background: #030c14;
+            border-top: 1px solid rgba(255,217,102,0.2);
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: none;
+            z-index: 999;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            padding: 0;
+        }
+        .back-to-top.show { display: flex; align-items: center; justify-content: center; }
+        .international-badge {
+            background: linear-gradient(135deg, #00c853, #00a86b);
+            color: white;
+        }
+        
+        /* Enhanced Calendar Styles */
+        .calendar-month-card {
+            background: linear-gradient(135deg, #0f2a3a, #0a1f2c);
+            border-radius: 24px;
+            border: 1px solid rgba(0,224,255,0.3);
+            overflow: hidden;
+            transition: all 0.3s;
+            height: 100%;
+        }
+        .calendar-month-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--sec-gold);
+            box-shadow: 0 10px 30px rgba(0,224,255,0.15);
+        }
+        .calendar-month-header {
+            background: linear-gradient(135deg, #00c6ff20, #0072ff20);
+            padding: 20px;
+            border-bottom: 2px solid var(--sec-gold);
+        }
+        .calendar-month-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+            color: var(--sec-gold);
+        }
+        .calendar-event {
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(0,224,255,0.1);
+            transition: all 0.2s;
+        }
+        .calendar-event:hover {
+            background: rgba(0,224,255,0.05);
+            padding-left: 20px;
+        }
+        .event-date {
+            background: rgba(0,224,255,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            display: inline-block;
+            color: #00e0ff;
+        }
+        .event-title {
+            font-weight: 600;
+            margin: 8px 0 4px 0;
+            color: white;
+        }
+        .event-location {
+            font-size: 0.75rem;
+            color: #aaa;
+        }
+        .event-location i {
+            color: var(--sec-gold);
+            margin-right: 4px;
+        }
+        .calendar-legend {
+            background: rgba(0,0,0,0.3);
+            border-radius: 16px;
+            padding: 15px 20px;
+        }
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        .legend-domestic { background: var(--primary-cyan); }
+        .legend-international { background: var(--sec-gold); }
+        .legend-virtual { background: #00c853; }
+        
+        .alert {
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .alert-success {
+            background: linear-gradient(135deg, #00c85320, #00a86b20);
+            border: 1px solid #00c853;
+            color: #00e0ff;
+        }
+        hr.gradient {
+            background: linear-gradient(90deg, transparent, var(--sec-gold), #00e0ff, transparent);
+            height: 2px;
+            border: none;
+        }
+        .text-cyan { color: var(--primary-cyan); }
+        .text-gold { color: var(--sec-gold); }
+        .bg-dark-card { background: rgba(10, 25, 40, 0.7); }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3">
+    <div class="container">
+        <a class="navbar-brand fw-bold fs-4 d-flex align-items-center" href="/">
+            <img src="{{ url_for('static', filename='images/kpilogo.png') }}" alt="KPI Logo" width="48" height="48" class="me-2 rounded-circle" onerror="this.src='https://placehold.co/60x60?text=KPI'">
+            <span class="gradient-text">KPI Organization Nigeria Ltd</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" href="/trainings">SEC Training</a></li>
+                <li class="nav-item"><a class="nav-link" href="/#services">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="/#gallery">Gallery</a></li>
+                <li class="nav-item ms-lg-2"><a href="#contact" class="btn btn-gradient btn-sm">Enquire Now</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Flash Messages -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="container mt-5 pt-5">
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                    <i class="bi bi-check-circle-fill me-2"></i> {{ message }}
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"></button>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+
+<!-- Hero Section -->
+<section class="hero-sec min-vh-100 d-flex align-items-center">
+    <div class="container text-center py-5">
+        <div data-aos="fade-up">
+            <br><br>
+            <span class="hero-badge mb-3 d-inline-block">
+                <i class="bi bi-patch-check-fill me-2"></i>SEC NIGERIA ACCREDITED TRAINING PARTNER
+            </span>
+            <h1 class="display-2 fw-bold gradient-text mt-3">Capital Market<br>Capacity Building</h1>
+            <p class="lead fs-4 mt-4 opacity-75 mx-auto" style="max-width: 800px;">
+                World-class training programs for financial professionals, regulators, and capital market operators.<br>
+                <span class="text-cyan">Domestic & International | SEC CPD Accredited | Expert Faculty</span>
+            </p>
+            <div class="mt-5 d-flex flex-wrap justify-content-center gap-3">
+                <a href="#domestic" class="btn btn-gradient btn-lg px-5"><i class="bi bi-building me-2"></i>Domestic Programs</a>
+                <a href="#international" class="btn btn-outline-sec btn-lg px-5"><i class="bi bi-globe2 me-2"></i>International Training</a>
+                <a href="#calendar" class="btn btn-outline-cyan btn-lg px-5"><i class="bi bi-calendar-check me-2"></i>View Calendar</a>
+            </div>
+        </div>
+        
+        <!-- Trust Indicators -->
+        <div class="row mt-5 pt-4 g-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-md-3 col-6">
+                <div class="stat-card text-center">
+                    <h2 class="counter display-4 fw-bold gradient-text" data-target="28">0</h2>
+                    <p>Annual SEC Programs</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="stat-card text-center">
+                    <h2 class="counter display-4 fw-bold gradient-text" data-target="12">0</h2>
+                    <p>International Locations</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="stat-card text-center">
+                    <h2 class="counter display-4 fw-bold gradient-text" data-target="1500">0</h2>
+                    <p>Professionals Trained</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="stat-card text-center">
+                    <h2 class="counter display-4 fw-bold gradient-text" data-target="100">0</h2>
+                    <p>CPD Accredited</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why SEC Training with KPI -->
+<section class="py-5 bg-dark">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <span class="section-badge">WHY CHOOSE US</span>
+                <h2 class="display-5 fw-bold mt-3">Your Trusted Partner for <span class="gradient-text">SEC-Compliant Training</span></h2>
+                <p class="lead mt-3">We deliver capacity building programs that meet the highest standards of the Securities and Exchange Commission Nigeria.</p>
+                <div class="row mt-4 g-3">
+                    <div class="col-6">
+                        <div class="d-flex gap-2 mb-3"><i class="bi bi-check-circle-fill text-cyan fs-4"></i><span><strong>SEC CPD Accredited</strong><br>All courses recognized by SEC</span></div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex gap-2 mb-3"><i class="bi bi-check-circle-fill text-cyan fs-4"></i><span><strong>Expert Faculty</strong><br>Industry practitioners & regulators</span></div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex gap-2 mb-3"><i class="bi bi-check-circle-fill text-cyan fs-4"></i><span><strong>Global Exposure</strong><br>Training in London, Dubai, USA</span></div>
+                    </div>
+                    <div class="col-6">
+                        <div class="d-flex gap-2 mb-3"><i class="bi bi-check-circle-fill text-cyan fs-4"></i><span><strong>Customized Programs</strong><br>In-house & tailored solutions</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mt-4 mt-lg-0" data-aos="fade-left">
+                <div class="position-relative">
+                    <img src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Training Session" class="img-fluid rounded-4 shadow-lg">
+                    <div class="floating position-absolute bottom-0 end-0 bg-dark p-3 rounded-4 m-3" style="background: rgba(0,0,0,0.8); backdrop-filter: blur(8px);">
+                        <i class="bi bi-star-fill text-warning"></i> <strong>98% Client Satisfaction</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Domestic Training Programs Section -->
+<section id="domestic" class="py-5">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-down">
+            <span class="sec-badge-gold"><i class="bi bi-building me-2"></i>NIGERIA-BASED PROGRAMS</span>
+            <h2 class="display-4 fw-bold gradient-text mt-3">Domestic SEC Training</h2>
+            <p class="lead">Comprehensive courses delivered in Lagos, Abuja, and other major Nigerian cities</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Course 1 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                <div class="course-card">
+                    <img src="https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=600" class="course-img" alt="Capital Market">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="badge-sec"><i class="bi bi-bank me-1"></i> SEC Core</span>
+                            <span class="pill-date"><i class="bi bi-calendar3"></i> Apr 14-18, 2026</span>
+                        </div>
+                        <h4>Capital Market Operations & Compliance</h4>
+                        <p>Regulatory framework, listing rules, market abuse prevention, and insider trading awareness.</p>
+                        <div class="mt-2"><i class="bi bi-geo-alt-fill text-cyan"></i> Lagos, Nigeria</div>
+                        <div class="mt-2"><span><i class="bi bi-person-badge"></i> CPD: 25 Units</span></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Course 2 - AML/CFT -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="course-card">
+                    <img src="https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=600" class="course-img">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="badge-sec"><i class="bi bi-shield-lock me-1"></i> AML/CFT</span>
+                            <span class="pill-date"><i class="bi bi-calendar3"></i> May 11-15, 2026</span>
+                        </div>
+                        <h4>Tackling Illicit Finance: AML/CFT Strategies</h4>
+                        <p>FATF standards, risk-based supervision, virtual assets compliance, and SEC guidelines.</p>
+                        <div><i class="bi bi-geo-alt-fill text-cyan"></i> Abuja, Nigeria</div>
+                        <div class="mt-2"><span><i class="bi bi-person-badge"></i> CPD: 20 Units</span></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Course 3 - Corporate Governance -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="course-card">
+                    <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=600" class="course-img">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="badge-sec"><i class="bi bi-building-gear me-1"></i> Governance</span>
+                            <span class="pill-date"><i class="bi bi-calendar3"></i> July 6-10, 2026</span>
+                        </div>
+                        <h4>Corporate Governance, Risk & Compliance</h4>
+                        <p>SEC Code of Corporate Governance, board effectiveness, ERM frameworks.</p>
+                        <div><i class="bi bi-geo-alt-fill text-cyan"></i> Lagos, Nigeria</div>
+                        <div class="mt-2"><span><i class="bi bi-person-badge"></i> CPD: 25 Units</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- International Training Programs Section -->
+<section id="international" class="py-5" style="background: linear-gradient(135deg, #0a1f2c, #05121c);">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-down">
+            <span class="sec-badge-gold international-badge"><i class="bi bi-airplane me-2"></i>GLOBAL IMMERSION</span>
+            <h2 class="display-4 fw-bold gradient-text mt-3">International Executive Training</h2>
+            <p class="lead">World-class exposure at leading financial centers — London, Dubai, Washington DC, Singapore</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="course-card">
+                    <img src="https://images.pexels.com/photos/257699/pexels-photo-257699.jpeg?auto=compress&cs=tinysrgb&w=1200" class="course-img" style="height: 250px;">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between">
+                            <span class="badge-sec"><i class="bi bi-currency-pound"></i> London, UK</span>
+                            <span class="pill-date">June 8-19, 2026</span>
+                        </div>
+                        <h3 class="mt-3">UK Capital Markets & ESG Investing</h3>
+                        <p>London Stock Exchange visits, SEC-UK collaboration, sustainable finance.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="course-card">
+                    <img src="https://images.pexels.com/photos/260689/pexels-photo-260689.jpeg?auto=compress&cs=tinysrgb&w=1200" class="course-img" style="height: 250px;">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between">
+                            <span class="badge-sec"><i class="bi bi-currency-bitcoin"></i> Dubai, UAE</span>
+                            <span class="pill-date">Sep 14-25, 2026</span>
+                        </div>
+                        <h3>DIFC: Crypto Assets & Digital Assets Regulation</h3>
+                        <p>Virtual asset supervision, CBDC trends, global regulatory convergence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ENHANCED 2026 FULL CALENDAR - Like WAIFEM PDF Style -->
+<section id="calendar" class="py-5">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="section-badge">2026 PROGRAMME AT A GLANCE</span>
+            <h2 class="display-4 fw-bold gradient-text mt-3">Full Training Calendar</h2>
+            <p class="lead">Comprehensive schedule of domestic and international training programs</p>
+        </div>
+
+        <!-- Calendar Legend -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="calendar-legend d-flex justify-content-center gap-4 flex-wrap">
+                    <span><span class="legend-dot legend-domestic"></span> Domestic Programs</span>
+                    <span><span class="legend-dot legend-international"></span> International Programs</span>
+                    <span><span class="legend-dot legend-virtual"></span> Virtual / Blended</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Monthly Calendar Grid - 12 Months -->
+        <div class="row g-4">
+            <!-- January -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                <div class="calendar-month-card">
+                    <div class="calendar-month-header">
+                        <h3 class="calendar-month-title">JANUARY</h3>
+                        <p class="mb-0 text-white-50">Q1 2026</p>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">Jan 12-16</span>
+                        <h5 class="event-title">Strategic Financial Planning</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Lagos, Nigeria</div>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">Jan 19-23</span>
+                        <h5 class="event-title">Introduction to Capital Markets</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Abuja, Nigeria</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- February -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="50">
+                <div class="calendar-month-card">
+                    <div class="calendar-month-header">
+                        <h3 class="calendar-month-title">FEBRUARY</h3>
+                        <p class="mb-0 text-white-50">Q1 2026</p>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">Feb 9-13</span>
+                        <h5 class="event-title">Investment & Portfolio Management</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Lagos, Nigeria</div>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">Feb 23-27</span>
+                        <h5 class="event-title">Risk & Return Analysis</h5>
+                        <div class="event-location"><i class="bi bi-laptop"></i> Virtual</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- March -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="calendar-month-card">
+                    <div class="calendar-month-header">
+                        <h3 class="calendar-month-title">MARCH</h3>
+                        <p class="mb-0 text-white-50">Q1 2026</p>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">Mar 2-13</span>
+                        <h5 class="event-title">Foundations of Modern Banking Supervision</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Lagos, Nigeria</div>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">Mar 16-20</span>
+                        <h5 class="event-title">Financial Analysis & Reporting (IFRS)</h5>
+                        <div class="event-location"><i class="bi bi-laptop"></i> Virtual</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- April -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+                <div class="calendar-month-card">
+                    <div class="calendar-month-header">
+                        <h3 class="calendar-month-title">APRIL</h3>
+                        <p class="mb-0 text-white-50">Q2 2026</p>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">Apr 13-17</span>
+                        <h5 class="event-title">Public Expenditure Management</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Accra, Ghana</div>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">Apr 13-24</span>
+                        <h5 class="event-title">EMEDP Module I - Basic Econometrics</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Lagos, Nigeria</div>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">Apr 27-May 1</span>
+                        <h5 class="event-title">Exchange Rate Policies</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Monrovia, Liberia</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- May -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="calendar-month-card">
+                    <div class="calendar-month-header">
+                        <h3 class="calendar-month-title">MAY</h3>
+                        <p class="mb-0 text-white-50">Q2 2026</p>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">May 4-8</span>
+                        <h5 class="event-title">DSF-LIC Debt Sustainability (WB/IMF)</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Abuja, Nigeria</div>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">May 11-15</span>
+                        <h5 class="event-title">AML/CFT Strategies</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Freetown, Sierra Leone</div>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">May 18-22</span>
+                        <h5 class="event-title">Advanced Monetary & Financial Statistics</h5>
+                        <div class="event-location"><i class="bi bi-laptop"></i> Blended</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- June -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
+                <div class="calendar-month-card">
+                    <div class="calendar-month-header">
+                        <h3 class="calendar-month-title">JUNE</h3>
+                        <p class="mb-0 text-white-50">Q2 2026</p>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">June 8-19</span>
+                        <h5 class="event-title">UK Capital Markets & ESG Investing</h5>
+                        <div class="event-location"><i class="bi bi-globe2 text-gold"></i> London, UK</div>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">June 15-19</span>
+                        <h5 class="event-title">Financial Inclusion & Microfinance</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Abuja, Nigeria</div>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">June 15-23</span>
+                        <h5 class="event-title">Machine Learning for Macro Modelling</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Banjul, Gambia</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- July -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="calendar-month-card">
+                    <div class="calendar-month-header">
+                        <h3 class="calendar-month-title">JULY</h3>
+                        <p class="mb-0 text-white-50">Q3 2026</p>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">July 6-10</span>
+                        <h5 class="event-title">Modern Financial Reporting (IFRS/FSI)</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Banjul, Gambia</div>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">July 13-17</span>
+                        <h5 class="event-title">Fiscal Institutions & Fiscal Risks</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Lagos, Nigeria</div>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">July 13-24</span>
+                        <h5 class="event-title">EMEDP Module II - Intermediate Econometrics</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Abuja, Nigeria</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- August -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="350">
+                <div class="calendar-month-card">
+                    <div class="calendar-month-header">
+                        <h3 class="calendar-month-title">AUGUST</h3>
+                        <p class="mb-0 text-white-50">Q3 2026</p>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">Aug 3-7</span>
+                        <h5 class="event-title">Public Sector Debt Statistics</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Banjul, Gambia</div>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">Aug 10-14</span>
+                        <h5 class="event-title">AI & Machine Learning for Capital Markets</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Lagos, Nigeria</div>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">Aug 17-21</span>
+                        <h5 class="event-title">Strategic Reserves Management</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Monrovia, Liberia</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- September -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="calendar-month-card">
+                    <div class="calendar-month-header">
+                        <h3 class="calendar-month-title">SEPTEMBER</h3>
+                        <p class="mb-0 text-white-50">Q3 2026</p>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">Sep 7-18</span>
+                        <h5 class="event-title">Advanced Banking Supervision (Level II)</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Lagos, Nigeria</div>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">Sep 7-18</span>
+                        <h5 class="event-title">Model-Based Monetary Policy (MPAF)</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Accra, Ghana</div>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">Sep 14-25</span>
+                        <h5 class="event-title">DIFC: Crypto Assets & Digital Regulation</h5>
+                        <div class="event-location"><i class="bi bi-globe2 text-gold"></i> Dubai, UAE</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- October -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="450">
+                <div class="calendar-month-card">
+                    <div class="calendar-month-header">
+                        <h3 class="calendar-month-title">OCTOBER</h3>
+                        <p class="mb-0 text-white-50">Q4 2026</p>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">Oct 5-9</span>
+                        <h5 class="event-title">Currency Management & Fintech</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Abuja, Nigeria</div>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">Oct 12-23</span>
+                        <h5 class="event-title">IMF-World Bank Debt Sustainability</h5>
+                        <div class="event-location"><i class="bi bi-globe2 text-gold"></i> Washington DC, USA</div>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">Oct 26-30</span>
+                        <h5 class="event-title">BPM7 Workshop (Balance of Payments)</h5>
+                        <div class="event-location"><i class="bi bi-laptop"></i> Virtual</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- November -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="calendar-month-card">
+                    <div class="calendar-month-header">
+                        <h3 class="calendar-month-title">NOVEMBER</h3>
+                        <p class="mb-0 text-white-50">Q4 2026</p>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">Nov 9-20</span>
+                        <h5 class="event-title">EMEDP Module III - Bayesian Econometrics</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Lagos, Nigeria</div>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">Nov 9-20</span>
+                        <h5 class="event-title">AI in Regulatory Supervision</h5>
+                        <div class="event-location"><i class="bi bi-globe2 text-gold"></i> Singapore</div>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">Nov 23-27</span>
+                        <h5 class="event-title">Corporate Governance Masterclass</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Lagos, Nigeria</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- December -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="550">
+                <div class="calendar-month-card">
+                    <div class="calendar-month-header">
+                        <h3 class="calendar-month-title">DECEMBER</h3>
+                        <p class="mb-0 text-white-50">Q4 2026</p>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">Dec 1-5</span>
+                        <h5 class="event-title">Global Financial Trends & Future Markets</h5>
+                        <div class="event-location"><i class="bi bi-laptop"></i> Virtual</div>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">Dec 7-11</span>
+                        <h5 class="event-title">Sustainable Finance & ESG Reporting</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Lagos, Nigeria</div>
+                    </div>
+                    <div class="calendar-event">
+                        <span class="event-date">Dec 14-18</span>
+                        <h5 class="event-title">Annual Review & Strategic Planning</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Abuja, Nigeria</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calendar Note -->
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <div class="bg-dark-card p-4 rounded-4 border border-cyan">
+                    <i class="bi bi-info-circle-fill text-cyan fs-4 me-2"></i>
+                    <span>Course dates are tentative. Actual dates will be confirmed in the Call for Nominations letters. For group bookings and custom training dates, please contact our training consultants.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="py-5 bg-dark">
+    <div class="container">
+        <div class="text-center mb-5"><h2 class="gradient-text">What Industry Leaders Say</h2></div>
+        <div class="row g-4">
+            <div class="col-md-4"><div class="testimonial-card"><i class="bi bi-chat-quote fs-1 text-cyan"></i><p>"KPI delivered exceptional SEC-aligned training. Our compliance team gained practical insights."</p><h6>— Compliance Director, Stockbroking Firm</h6></div></div>
+            <div class="col-md-4"><div class="testimonial-card"><i class="bi bi-chat-quote fs-1 text-cyan"></i><p>"The London international program transformed our perspective on ESG investing."</p><h6>— Head, Investment Banking</h6></div></div>
+            <div class="col-md-4"><div class="testimonial-card"><i class="bi bi-chat-quote fs-1 text-cyan"></i><p>"Comprehensive calendar and expert faculty. SEC should mandate these programs."</p><h6>— Senior Regulator, SEC Nigeria</h6></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="row g-0">
+                    <div class="col-lg-5 bg-dark p-5 rounded-start-4" style="background: linear-gradient(135deg, #0a1c2f, #0a2a3a);">
+                        <h3 class="gradient-text">Ready to Elevate Your Team?</h3>
+                        <p class="mt-3">Speak with our SEC training consultants for custom proposals and international program details.</p>
+                        <hr class="gradient my-4">
+                        <div class="mt-4">
+                            <p><i class="bi bi-telephone-fill text-cyan me-2"></i> +234-8035-971-844</p>
+                            <p><i class="bi bi-envelope-fill text-cyan me-2"></i> sec.training@kpiorganization.ng</p>
+                            <p><i class="bi bi-envelope-fill text-cyan me-2"></i> info@kpiorganization.ng</p>
+                            <p><i class="bi bi-geo-alt-fill text-cyan me-2"></i> BASSAN Plaza, Constitution Ave, Abuja</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 p-5 contact-form-wrapper rounded-end-4">
+                        <form method="POST" action="{{ url_for('trainings') }}#contact">
+                            <div class="row g-3">
+                                <div class="col-12"><input type="text" name="name" class="form-control bg-dark text-white border-0" placeholder="Full Name" required></div>
+                                <div class="col-12"><input type="email" name="email" class="form-control bg-dark text-white border-0" placeholder="Email Address" required></div>
+                                <div class="col-12"><input type="tel" name="phone" class="form-control bg-dark text-white border-0" placeholder="Phone Number"></div>
+                                <div class="col-12">
+                                    <select name="program" class="form-select bg-dark text-white border-0" required>
+                                        <option value="">Select Program Interest</option>
+                                        <option value="Domestic SEC Training">Domestic SEC Training</option>
+                                        <option value="International Program (Abroad)">International Program (Abroad)</option>
+                                        <option value="Custom In-House Training">Custom In-House Training</option>
+                                    </select>
+                                </div>
+                                <div class="col-12"><textarea name="message" rows="3" class="form-control bg-dark text-white border-0" placeholder="Tell us your training needs..."></textarea></div>
+                                <div class="col-12"><button type="submit" class="btn btn-gradient w-100"><i class="bi bi-send me-2"></i>Submit Enquiry</button></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <h4 class="gradient-text"><img src="{{ url_for('static', filename='images/kpilogo.png') }}" width="40" class="rounded-circle me-2">KPI Organization Nigeria Ltd</h4>
+                <p>SEC Nigeria Accredited Training Partner | Capacity Building for Capital Markets</p>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#domestic" class="text-decoration-none text-white-50">Domestic Programs</a></li>
+                    <li><a href="#international" class="text-decoration-none text-white-50">International Training</a></li>
+                    <li><a href="#calendar" class="text-decoration-none text-white-50">2026 Calendar</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <h5>Contact</h5>
+                <p><i class="bi bi-telephone me-2"></i> +234-8035-971-844</p>
+                <p><i class="bi bi-envelope me-2"></i> info@kpiorganization.ng</p>
+            </div>
+        </div>
+        <hr class="opacity-25">
+        <div class="text-center pt-3">
+            <p>© 2025 KPI Organization Nigeria Ltd </p>
+        </div>
+    </div>
+</footer>
+
+<button id="backToTop" class="btn btn-gradient back-to-top"><i class="bi bi-chevron-up fs-4"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init({ duration: 800, once: true });
+
+// Counters
+const counters = document.querySelectorAll('.counter');
+counters.forEach(counter => {
+    const update = () => {
+        const target = +counter.getAttribute('data-target');
+        const current = +counter.innerText;
+        const inc = target / 60;
+        if (current < target) {
+            counter.innerText = Math.ceil(current + inc);
+            setTimeout(update, 30);
+        } else counter.innerText = target;
+    };
+    update();
+});
+
+// Back to top
+const backBtn = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) backBtn.classList.add('show');
+    else backBtn.classList.remove('show');
+});
+backBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+</script>
+</body>
+</html>
