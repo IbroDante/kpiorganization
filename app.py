@@ -5,14 +5,14 @@ from email.mime.multipart import MIMEMultipart
 import os
 
 app = Flask(__name__)
-app.secret_key = 'super_secret_key'  # For flash messages in contact form
+app.secret_key = 'super_secret_key'  
 
 # Email configuration (optional - for production)
 EMAIL_CONFIG = {
     'smtp_server': 'smtp.gmail.com',
     'smtp_port': 587,
-    'sender_email': 'info@kpiorganization.ng',  # Update with your email
-    'sender_password': '',  # Update with your password
+    'sender_email': 'info@kpiorganization.ng',  
+    'sender_password': '**',  
     'recipient_email': 'info@kpiorganization.ng'
 }
 
@@ -77,7 +77,7 @@ def trainings():
         message = request.form.get('message', '')
         
         # Flash success message
-        flash('Thank you for your training inquiry! Our SEC training consultant will contact you within 24 hours.', 'success')
+        flash('Thank you for your training inquiry! Our training consultant will contact you within 24 hours.', 'success')
         
         # Optional: Send email notification
         # send_email(name, email, phone, program, message)
