@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title> KPI Organization - Accredited Capacity Building Partner</title>
+    <title>KPI Organization - Accredited Capacity Building Partner | Advanced Training Programs</title>
     <!-- Bootstrap 5 + Icons + Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
@@ -17,6 +17,8 @@
             --deep-navy: #0a1c2f;
             --dark-bg: #07121c;
             --card-bg: #0f2a3a;
+            --accent-purple: #9b59b6;
+            --accent-orange: #e67e22;
         }
         * {
             margin: 0;
@@ -137,6 +139,10 @@
             padding: 4px 12px;
             font-size: 0.7rem;
             font-weight: 600;
+        }
+        .badge-advanced {
+            background: linear-gradient(135deg, var(--accent-purple), #8e44ad);
+            color: white;
         }
         .pill-date {
             background: #1a3a4a;
@@ -266,6 +272,25 @@
         .legend-domestic { background: var(--primary-cyan); }
         .legend-international { background: var(--sec-gold); }
         .legend-virtual { background: #00c853; }
+        .legend-advanced { background: var(--accent-purple); }
+        
+        /* Advanced Topics Section */
+        .topic-card {
+            background: linear-gradient(135deg, #0f2a3a, #0a1f2c);
+            border-radius: 20px;
+            padding: 24px;
+            border-left: 4px solid var(--accent-purple);
+            transition: all 0.3s;
+            height: 100%;
+        }
+        .topic-card:hover {
+            transform: translateX(8px);
+            border-left-color: var(--sec-gold);
+        }
+        .topic-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
         
         .alert {
             border-radius: 12px;
@@ -302,8 +327,8 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
                 <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                 <li class="nav-item"><a class="nav-link active" href="/trainings">Training</a></li>
-                <li class="nav-item"><a class="nav-link" href="/#services">Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="/#gallery">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="#advanced-topics">Advanced Topics</a></li>
+                <li class="nav-item"><a class="nav-link" href="#calendar">Calendar</a></li>
                 <li class="nav-item ms-lg-2"><a href="#contact" class="btn btn-gradient btn-sm">Enquire Now</a></li>
             </ul>
         </div>
@@ -334,12 +359,14 @@
             </span>
             <p class="lead fs-4 mt-4 opacity-75 mx-auto" style="max-width: 800px;">
                 World-class training programs for financial professionals, regulators, and capital market operators.<br>
-                <span class="text-cyan">Domestic & International | CPD Accredited | Expert Faculty</span>
+                <span class="text-cyan">Domestic & International | CPD Accredited | Expert Faculty | Advanced Curriculum</span>
             </p>
             <div class="mt-5 d-flex flex-wrap justify-content-center gap-3">
-                <a href="#domestic" class="btn btn-gradient btn-lg px-5"><i class="bi bi-building me-2"></i>Domestic Programs</a>
-                <a href="#international" class="btn btn-outline-sec btn-lg px-5"><i class="bi bi-globe2 me-2"></i>International Training</a>
+                <a href="#advanced-topics" class="btn btn-gradient btn-lg px-5"><i class="bi bi-stars me-2"></i>Advanced Topics</a>
+                <a href="#domestic" class="btn btn-outline-sec btn-lg px-5"><i class="bi bi-building me-2"></i>Domestic Programs</a>
+                <a href="#international" class="btn btn-outline-cyan btn-lg px-5"><i class="bi bi-globe2 me-2"></i>International Training</a>
                 <a href="#calendar" class="btn btn-outline-cyan btn-lg px-5"><i class="bi bi-calendar-check me-2"></i>View Calendar</a>
+
             </div>
         </div>
         
@@ -347,19 +374,19 @@
         <div class="row mt-5 pt-4 g-4" data-aos="fade-up" data-aos-delay="200">
             <div class="col-md-3 col-6">
                 <div class="stat-card text-center">
-                    <h2 class="counter display-4 fw-bold gradient-text" data-target="28">0</h2>
+                    <h2 class="counter display-4 fw-bold gradient-text" data-target="35">0</h2>
                     <p>Annual Programs</p>
                 </div>
             </div>
             <div class="col-md-3 col-6">
                 <div class="stat-card text-center">
-                    <h2 class="counter display-4 fw-bold gradient-text" data-target="12">0</h2>
+                    <h2 class="counter display-4 fw-bold gradient-text" data-target="15">0</h2>
                     <p>International Locations</p>
                 </div>
             </div>
             <div class="col-md-3 col-6">
                 <div class="stat-card text-center">
-                    <h2 class="counter display-4 fw-bold gradient-text" data-target="1500">0</h2>
+                    <h2 class="counter display-4 fw-bold gradient-text" data-target="2500">0</h2>
                     <p>Professionals Trained</p>
                 </div>
             </div>
@@ -373,14 +400,112 @@
     </div>
 </section>
 
+<!-- NEW: Advanced Training Topics Section -->
+<section id="advanced-topics" class="py-5">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-down">
+            <span class="section-badge">ADVANCED CURRICULUM</span>
+            <h2 class="display-4 fw-bold gradient-text mt-3">Specialized Training Modules</h2>
+            <p class="lead">Cutting-edge programs designed for regulatory excellence and capital market leadership</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Topic 1: Capital Market Regulation -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                <div class="topic-card">
+                    <div class="topic-icon"><i class="bi bi-graph-up text-cyan fs-1"></i></div>
+                    <h4>Advanced Capital Market Regulation & Systemic Risk Oversight</h4>
+                    <p class="small">Focus on macroprudential regulation, cross-market linkages, and early warning systems for financial instability.</p>
+                    <ul class="list-unstyled small mt-3">
+                        <li><i class="bi bi-check-circle-fill text-cyan me-2"></i>Monitoring systemic risks across equities, bonds, and derivatives</li>
+                        <li><i class="bi bi-check-circle-fill text-cyan me-2"></i>Stress testing frameworks and crisis response strategies</li>
+                        <li><i class="bi bi-check-circle-fill text-cyan me-2"></i>Alignment with IOSCO principles</li>
+                    </ul>
+                    <span class="badge-sec mt-2 d-inline-block">Advanced Level</span>
+                </div>
+            </div>
+
+            <!-- Topic 2: FinTech & Digital Assets -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="topic-card">
+                    <div class="topic-icon"><i class="bi bi-currency-bitcoin text-gold fs-1"></i></div>
+                    <h4>Financial Technology (FinTech), Digital Assets & Regulatory Sandboxing</h4>
+                    <p>Equips leadership to regulate emerging technologies without stifling innovation.</p>
+                    <ul class="list-unstyled small mt-3">
+                        <li><i class="bi bi-check-circle-fill text-cyan me-2"></i>Blockchain, tokenization, and digital asset regulation</li>
+                        <li><i class="bi bi-check-circle-fill text-cyan me-2"></i>Regulatory sandbox frameworks and innovation hubs</li>
+                        <li><i class="bi bi-check-circle-fill text-cyan me-2"></i>Oversight of crowdfunding, robo-advisory, and AI-driven trading</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Topic 3: ESG & Sustainable Finance -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="topic-card">
+                    <div class="topic-icon"><i class="bi bi-tree text-success fs-1"></i></div>
+                    <h4>Corporate Governance, ESG & Sustainable Finance</h4>
+                    <p>Addresses evolving expectations on transparency and sustainability in capital markets.</p>
+                    <ul class="list-unstyled small mt-3">
+                        <li><i class="bi bi-check-circle-fill text-cyan me-2"></i>Environmental, Social, and Governance (ESG) disclosure standards</li>
+                        <li><i class="bi bi-check-circle-fill text-cyan me-2"></i>Climate risk reporting and green finance instruments</li>
+                        <li><i class="bi bi-check-circle-fill text-cyan me-2"></i>Board effectiveness and executive accountability</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Topic 4: Market Surveillance -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="topic-card">
+                    <div class="topic-icon"><i class="bi bi-eye fs-1 text-cyan"></i></div>
+                    <h4>Market Surveillance, Enforcement & Investigation Techniques</h4>
+                    <p>Enhances capacity to detect and prosecute market abuses.</p>
+                    <ul class="list-unstyled small mt-3">
+                        <li><i class="bi bi-check-circle-fill text-cyan me-2"></i>Insider trading and market manipulation detection systems</li>
+                        <li><i class="bi bi-check-circle-fill text-cyan me-2"></i>Use of data analytics and AI in surveillance</li>
+                        <li><i class="bi bi-check-circle-fill text-cyan me-2"></i>Enforcement strategy and litigation management</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Topic 5: Strategic Leadership -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="topic-card">
+                    <div class="topic-icon"><i class="bi bi-trophy fs-1 text-gold"></i></div>
+                    <h4>Strategic Leadership, Policy Development & Stakeholder Engagement</h4>
+                    <p>Strengthens executive decision-making and institutional leadership.</p>
+                    <ul class="list-unstyled small mt-3">
+                        <li><i class="bi bi-check-circle-fill text-cyan me-2"></i>Policy formulation in a dynamic regulatory environment</li>
+                        <li><i class="bi bi-check-circle-fill text-cyan me-2"></i>Stakeholder management (government, investors, international bodies)</li>
+                        <li><i class="bi bi-check-circle-fill text-cyan me-2"></i>Change management and organizational transformation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Topic 6: AI & Data Analytics -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="topic-card">
+                    <div class="topic-icon"><i class="bi bi-cpu fs-1 text-cyan"></i></div>
+                    <h4>AI & Data Analytics in Financial Regulation</h4>
+                    <p>Leverage artificial intelligence for enhanced regulatory oversight.</p>
+                    <ul class="list-unstyled small mt-3">
+                        <li><i class="bi bi-check-circle-fill text-cyan me-2"></i>Machine learning for fraud detection</li>
+                        <li><i class="bi bi-check-circle-fill text-cyan me-2"></i>Predictive analytics for market monitoring</li>
+                        <li><i class="bi bi-check-circle-fill text-cyan me-2"></i>AI-driven compliance automation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Why Training with KPI -->
 <section class="py-5 bg-dark">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6" data-aos="fade-right">
                 <span class="section-badge">WHY CHOOSE US</span>
-                <h2 class="display-5 fw-bold mt-3">Your Trusted Partner for <span class="gradient-text">Compliant Training</span></h2>
-                <p class="lead mt-3">We deliver capacity building programs that meet the highest standards.</p>
+                <h2 class="display-5 fw-bold mt-3">Your Trusted Partner for <span class="gradient-text">Advanced Regulatory Training</span></h2>
+                <p class="lead mt-3">We deliver capacity building programs that meet the highest international standards.</p>
                 <div class="row mt-4 g-3">
                     <div class="col-6">
                         <div class="d-flex gap-2 mb-3"><i class="bi bi-check-circle-fill text-cyan fs-4"></i><span><strong>CPD Accredited</strong><br>All courses recognized</span></div>
@@ -389,7 +514,7 @@
                         <div class="d-flex gap-2 mb-3"><i class="bi bi-check-circle-fill text-cyan fs-4"></i><span><strong>Expert Faculty</strong><br>Industry practitioners & regulators</span></div>
                     </div>
                     <div class="col-6">
-                        <div class="d-flex gap-2 mb-3"><i class="bi bi-check-circle-fill text-cyan fs-4"></i><span><strong>Global Exposure</strong><br>Training in London, Dubai, USA</span></div>
+                        <div class="d-flex gap-2 mb-3"><i class="bi bi-check-circle-fill text-cyan fs-4"></i><span><strong>Global Exposure</strong><br>Training in London, Dubai, USA, Singapore</span></div>
                     </div>
                     <div class="col-6">
                         <div class="d-flex gap-2 mb-3"><i class="bi bi-check-circle-fill text-cyan fs-4"></i><span><strong>Customized Programs</strong><br>In-house & tailored solutions</span></div>
@@ -418,50 +543,50 @@
         </div>
 
         <div class="row g-4">
-            <!-- Course 1 -->
+            <!-- Course 1 - Advanced Capital Market Regulation -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up">
                 <div class="course-card">
-                    <img src="https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=600" class="course-img" alt="Capital Market">
+                    <img src="https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=600" class="course-img">
                     <div class="p-4">
                         <div class="d-flex justify-content-between mb-2">
-                            <span class="badge-sec"><i class="bi bi-bank me-1"></i> Core</span>
-                            <span class="pill-date"><i class="bi bi-calendar3"></i> Apr 14-18, 2026</span>
+                            <span class="badge-sec"><i class="bi bi-graph-up me-1"></i> Advanced</span>
+                            <span class="pill-date"><i class="bi bi-calendar3"></i> Mar 9-13, 2026</span>
                         </div>
-                        <h4>Capital Market Operations & Compliance</h4>
-                        <p>Regulatory framework, listing rules, market abuse prevention, and insider trading awareness.</p>
+                        <h4>Advanced Capital Market Regulation & Systemic Risk Oversight</h4>
+                        <p>Macroprudential regulation, cross-market linkages, stress testing, and IOSCO alignment.</p>
                         <div class="mt-2"><i class="bi bi-geo-alt-fill text-cyan"></i> Lagos, Nigeria</div>
+                        <div class="mt-2"><span><i class="bi bi-person-badge"></i> CPD: 30 Units</span></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Course 2 - FinTech & Digital Assets -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="course-card">
+                    <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600" class="course-img">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="badge-sec"><i class="bi bi-currency-bitcoin me-1"></i> FinTech</span>
+                            <span class="pill-date"><i class="bi bi-calendar3"></i> Apr 20-24, 2026</span>
+                        </div>
+                        <h4>FinTech, Digital Assets & Regulatory Sandboxing</h4>
+                        <p>Blockchain regulation, tokenization, sandbox frameworks, AI-driven trading oversight.</p>
+                        <div><i class="bi bi-geo-alt-fill text-cyan"></i> Lagos, Nigeria</div>
                         <div class="mt-2"><span><i class="bi bi-person-badge"></i> CPD: 25 Units</span></div>
                     </div>
                 </div>
             </div>
-            <!-- Course 2 - AML/CFT -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="course-card">
-                    <img src="https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=600" class="course-img">
-                    <div class="p-4">
-                        <div class="d-flex justify-content-between mb-2">
-                            <span class="badge-sec"><i class="bi bi-shield-lock me-1"></i> AML/CFT</span>
-                            <span class="pill-date"><i class="bi bi-calendar3"></i> May 11-15, 2026</span>
-                        </div>
-                        <h4>Tackling Illicit Finance: AML/CFT Strategies</h4>
-                        <p>FATF standards, risk-based supervision, virtual assets compliance, and SEC guidelines.</p>
-                        <div><i class="bi bi-geo-alt-fill text-cyan"></i> Abuja, Nigeria</div>
-                        <div class="mt-2"><span><i class="bi bi-person-badge"></i> CPD: 20 Units</span></div>
-                    </div>
-                </div>
-            </div>
-            <!-- Course 3 - Corporate Governance -->
+            <!-- Course 3 - ESG & Sustainable Finance -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                 <div class="course-card">
                     <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=600" class="course-img">
                     <div class="p-4">
                         <div class="d-flex justify-content-between mb-2">
-                            <span class="badge-sec"><i class="bi bi-building-gear me-1"></i> Governance</span>
-                            <span class="pill-date"><i class="bi bi-calendar3"></i> July 6-10, 2026</span>
+                            <span class="badge-sec"><i class="bi bi-tree me-1"></i> ESG</span>
+                            <span class="pill-date"><i class="bi bi-calendar3"></i> Jun 22-26, 2026</span>
                         </div>
-                        <h4>Corporate Governance, Risk & Compliance</h4>
-                        <p> Code of Corporate Governance, board effectiveness, ERM frameworks.</p>
-                        <div><i class="bi bi-geo-alt-fill text-cyan"></i> Lagos, Nigeria</div>
+                        <h4>Corporate Governance, ESG & Sustainable Finance</h4>
+                        <p>ESG disclosure, climate risk reporting, green finance, board effectiveness.</p>
+                        <div><i class="bi bi-geo-alt-fill text-cyan"></i> Abuja, Nigeria</div>
                         <div class="mt-2"><span><i class="bi bi-person-badge"></i> CPD: 25 Units</span></div>
                     </div>
                 </div>
@@ -488,8 +613,9 @@
                             <span class="badge-sec"><i class="bi bi-currency-pound"></i> London, UK</span>
                             <span class="pill-date">June 8-19, 2026</span>
                         </div>
-                        <h3 class="mt-3">UK Capital Markets & ESG Investing</h3>
-                        <p>London Stock Exchange visits, UK collaboration, sustainable finance.</p>
+                        <h3 class="mt-3">Market Surveillance, Enforcement & Investigation</h3>
+                        <p>FCA collaboration, insider trading detection, AI surveillance systems, enforcement strategies.</p>
+                        <div class="mt-2"><span><i class="bi bi-person-badge"></i> CPD: 40 Units</span></div>
                     </div>
                 </div>
             </div>
@@ -501,8 +627,35 @@
                             <span class="badge-sec"><i class="bi bi-currency-bitcoin"></i> Dubai, UAE</span>
                             <span class="pill-date">Sep 14-25, 2026</span>
                         </div>
-                        <h3>DIFC: Crypto Assets & Digital Assets Regulation</h3>
-                        <p>Virtual asset supervision, CBDC trends, global regulatory convergence.</p>
+                        <h3>Digital Assets, DeFi & Regulatory Innovation</h3>
+                        <p>DIFC Academy, crypto regulation, DeFi oversight, regulatory sandbox frameworks.</p>
+                        <div class="mt-2"><span><i class="bi bi-person-badge"></i> CPD: 35 Units</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+                <div class="course-card">
+                    <img src="https://images.pexels.com/photos/1267696/pexels-photo-1267696.jpeg?auto=compress&cs=tinysrgb&w=1200" class="course-img" style="height: 250px;">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between">
+                            <span class="badge-sec"><i class="bi bi-bank"></i> Washington DC, USA</span>
+                            <span class="pill-date">Oct 12-23, 2026</span>
+                        </div>
+                        <h3>Strategic Leadership & Policy Development</h3>
+                        <p>IMF-World Bank collaboration, policy formulation, stakeholder engagement, organizational transformation.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
+                <div class="course-card">
+                    <img src="https://images.pexels.com/photos/6770610/pexels-photo-6770610.jpeg?auto=compress&cs=tinysrgb&w=1200" class="course-img" style="height: 250px;">
+                    <div class="p-4">
+                        <div class="d-flex justify-content-between">
+                            <span class="badge-sec"><i class="bi bi-cpu"></i> Singapore</span>
+                            <span class="pill-date">Nov 9-20, 2026</span>
+                        </div>
+                        <h3>AI & Data Analytics in Financial Regulation</h3>
+                        <p>MAS frameworks, machine learning for fraud detection, predictive analytics, AI-driven compliance.</p>
                     </div>
                 </div>
             </div>
@@ -510,13 +663,13 @@
     </div>
 </section>
 
-<!-- ENHANCED 2026 FULL CALENDAR - Like WAIFEM PDF Style -->
+<!-- ENHANCED 2026 FULL CALENDAR with Advanced Topics -->
 <section id="calendar" class="py-5">
     <div class="container">
         <div class="text-center mb-5" data-aos="fade-up">
             <span class="section-badge">2026 PROGRAMME AT A GLANCE</span>
             <h2 class="display-4 fw-bold gradient-text mt-3">Full Training Calendar</h2>
-            <p class="lead">Comprehensive schedule of domestic and international training programs</p>
+            <p class="lead">Comprehensive schedule of domestic, international, and advanced training programs</p>
         </div>
 
         <!-- Calendar Legend -->
@@ -526,13 +679,14 @@
                     <span><span class="legend-dot legend-domestic"></span> Domestic Programs</span>
                     <span><span class="legend-dot legend-international"></span> International Programs</span>
                     <span><span class="legend-dot legend-virtual"></span> Virtual / Blended</span>
+                    <span><span class="legend-dot legend-advanced"></span> Advanced/Specialized</span>
                 </div>
             </div>
         </div>
 
-        <!-- Monthly Calendar Grid - 12 Months -->
+        <!-- Monthly Calendar Grid -->
         <div class="row g-4">
-            <!-- January -->
+            <!-- January - Advanced Topics -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up">
                 <div class="calendar-month-card">
                     <div class="calendar-month-header">
@@ -540,14 +694,14 @@
                         <p class="mb-0 text-white-50">Q1 2026</p>
                     </div>
                     <div class="calendar-event">
-                        <span class="event-date">Jan 12-16</span>
-                        <h5 class="event-title">Strategic Financial Planning</h5>
-                        <div class="event-location"><i class="bi bi-building"></i> Lagos, Nigeria</div>
+                        <span class="event-date">Jan 19-23</span>
+                        <h5 class="event-title">Strategic Leadership & Policy Development</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Abuja, Nigeria</div>
                     </div>
                     <div class="calendar-event">
-                        <span class="event-date">Jan 19-23</span>
+                        <span class="event-date">Jan 26-30</span>
                         <h5 class="event-title">Introduction to Capital Markets</h5>
-                        <div class="event-location"><i class="bi bi-building"></i> Abuja, Nigeria</div>
+                        <div class="event-location"><i class="bi bi-laptop"></i> Virtual</div>
                     </div>
                 </div>
             </div>
@@ -565,14 +719,14 @@
                         <div class="event-location"><i class="bi bi-building"></i> Lagos, Nigeria</div>
                     </div>
                     <div class="calendar-event">
-                        <span class="event-date">Feb 23-27</span>
-                        <h5 class="event-title">Risk & Return Analysis</h5>
-                        <div class="event-location"><i class="bi bi-laptop"></i> Virtual</div>
+                        <span class="event-date">Feb 16-20</span>
+                        <h5 class="event-title">Corporate Governance & Board Effectiveness</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Lagos, Nigeria</div>
                     </div>
                 </div>
             </div>
 
-            <!-- March -->
+            <!-- March - Advanced Capital Market Regulation -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                 <div class="calendar-month-card">
                     <div class="calendar-month-header">
@@ -585,14 +739,14 @@
                         <div class="event-location"><i class="bi bi-building"></i> Lagos, Nigeria</div>
                     </div>
                     <div class="calendar-event">
-                        <span class="event-date">Mar 16-20</span>
-                        <h5 class="event-title">Financial Analysis & Reporting (IFRS)</h5>
-                        <div class="event-location"><i class="bi bi-laptop"></i> Virtual</div>
+                        <span class="event-date">Mar 9-13</span>
+                        <h5 class="event-title"><i class="bi bi-star-fill text-gold"></i> Advanced Capital Market Regulation & Systemic Risk</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Lagos, Nigeria</div>
                     </div>
                 </div>
             </div>
 
-            <!-- April -->
+            <!-- April - FinTech Focus -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
                 <div class="calendar-month-card">
                     <div class="calendar-month-header">
@@ -605,8 +759,8 @@
                         <div class="event-location"><i class="bi bi-building"></i> Accra, Ghana</div>
                     </div>
                     <div class="calendar-event">
-                        <span class="event-date">Apr 13-24</span>
-                        <h5 class="event-title">EMEDP Module I - Basic Econometrics</h5>
+                        <span class="event-date">Apr 20-24</span>
+                        <h5 class="event-title"><i class="bi bi-star-fill text-gold"></i> FinTech, Digital Assets & Regulatory Sandboxing</h5>
                         <div class="event-location"><i class="bi bi-building"></i> Lagos, Nigeria</div>
                     </div>
                     <div class="calendar-event">
@@ -617,7 +771,7 @@
                 </div>
             </div>
 
-            <!-- May -->
+            <!-- May - AML/CFT -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                 <div class="calendar-month-card">
                     <div class="calendar-month-header">
@@ -631,7 +785,7 @@
                     </div>
                     <div class="calendar-event">
                         <span class="event-date">May 11-15</span>
-                        <h5 class="event-title">AML/CFT Strategies</h5>
+                        <h5 class="event-title">AML/CFT Strategies & Illicit Finance</h5>
                         <div class="event-location"><i class="bi bi-building"></i> Freetown, Sierra Leone</div>
                     </div>
                     <div class="calendar-event">
@@ -642,7 +796,7 @@
                 </div>
             </div>
 
-            <!-- June -->
+            <!-- June - ESG Focus -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
                 <div class="calendar-month-card">
                     <div class="calendar-month-header">
@@ -651,7 +805,7 @@
                     </div>
                     <div class="calendar-event">
                         <span class="event-date">June 8-19</span>
-                        <h5 class="event-title">UK Capital Markets & ESG Investing</h5>
+                        <h5 class="event-title"><i class="bi bi-star-fill text-gold"></i> Market Surveillance & Enforcement (London)</h5>
                         <div class="event-location"><i class="bi bi-globe2 text-gold"></i> London, UK</div>
                     </div>
                     <div class="calendar-event">
@@ -660,14 +814,14 @@
                         <div class="event-location"><i class="bi bi-building"></i> Abuja, Nigeria</div>
                     </div>
                     <div class="calendar-event">
-                        <span class="event-date">June 15-23</span>
-                        <h5 class="event-title">Machine Learning for Macro Modelling</h5>
-                        <div class="event-location"><i class="bi bi-building"></i> Banjul, Gambia</div>
+                        <span class="event-date">June 22-26</span>
+                        <h5 class="event-title"><i class="bi bi-star-fill text-gold"></i> ESG & Sustainable Finance</h5>
+                        <div class="event-location"><i class="bi bi-building"></i> Abuja, Nigeria</div>
                     </div>
                 </div>
             </div>
 
-            <!-- July -->
+            <!-- July - EMEDP -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                 <div class="calendar-month-card">
                     <div class="calendar-month-header">
@@ -680,11 +834,6 @@
                         <div class="event-location"><i class="bi bi-building"></i> Banjul, Gambia</div>
                     </div>
                     <div class="calendar-event">
-                        <span class="event-date">July 13-17</span>
-                        <h5 class="event-title">Fiscal Institutions & Fiscal Risks</h5>
-                        <div class="event-location"><i class="bi bi-building"></i> Lagos, Nigeria</div>
-                    </div>
-                    <div class="calendar-event">
                         <span class="event-date">July 13-24</span>
                         <h5 class="event-title">EMEDP Module II - Intermediate Econometrics</h5>
                         <div class="event-location"><i class="bi bi-building"></i> Abuja, Nigeria</div>
@@ -692,7 +841,7 @@
                 </div>
             </div>
 
-            <!-- August -->
+            <!-- August - AI & Data Analytics -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="350">
                 <div class="calendar-month-card">
                     <div class="calendar-month-header">
@@ -706,18 +855,13 @@
                     </div>
                     <div class="calendar-event">
                         <span class="event-date">Aug 10-14</span>
-                        <h5 class="event-title">AI & Machine Learning for Capital Markets</h5>
+                        <h5 class="event-title"><i class="bi bi-star-fill text-gold"></i> AI & Data Analytics in Financial Regulation</h5>
                         <div class="event-location"><i class="bi bi-building"></i> Lagos, Nigeria</div>
-                    </div>
-                    <div class="calendar-event">
-                        <span class="event-date">Aug 17-21</span>
-                        <h5 class="event-title">Strategic Reserves Management</h5>
-                        <div class="event-location"><i class="bi bi-building"></i> Monrovia, Liberia</div>
                     </div>
                 </div>
             </div>
 
-            <!-- September -->
+            <!-- September - Digital Assets (Dubai) -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
                 <div class="calendar-month-card">
                     <div class="calendar-month-header">
@@ -730,19 +874,14 @@
                         <div class="event-location"><i class="bi bi-building"></i> Lagos, Nigeria</div>
                     </div>
                     <div class="calendar-event">
-                        <span class="event-date">Sep 7-18</span>
-                        <h5 class="event-title">Model-Based Monetary Policy (MPAF)</h5>
-                        <div class="event-location"><i class="bi bi-building"></i> Accra, Ghana</div>
-                    </div>
-                    <div class="calendar-event">
                         <span class="event-date">Sep 14-25</span>
-                        <h5 class="event-title">DIFC: Crypto Assets & Digital Regulation</h5>
+                        <h5 class="event-title"><i class="bi bi-star-fill text-gold"></i> Digital Assets, DeFi & Regulatory Innovation (Dubai)</h5>
                         <div class="event-location"><i class="bi bi-globe2 text-gold"></i> Dubai, UAE</div>
                     </div>
                 </div>
             </div>
 
-            <!-- October -->
+            <!-- October - Strategic Leadership -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="450">
                 <div class="calendar-month-card">
                     <div class="calendar-month-header">
@@ -756,18 +895,13 @@
                     </div>
                     <div class="calendar-event">
                         <span class="event-date">Oct 12-23</span>
-                        <h5 class="event-title">IMF-World Bank Debt Sustainability</h5>
+                        <h5 class="event-title"><i class="bi bi-star-fill text-gold"></i> Strategic Leadership & Policy Development (Washington DC)</h5>
                         <div class="event-location"><i class="bi bi-globe2 text-gold"></i> Washington DC, USA</div>
-                    </div>
-                    <div class="calendar-event">
-                        <span class="event-date">Oct 26-30</span>
-                        <h5 class="event-title">BPM7 Workshop (Balance of Payments)</h5>
-                        <div class="event-location"><i class="bi bi-laptop"></i> Virtual</div>
                     </div>
                 </div>
             </div>
 
-            <!-- November -->
+            <!-- November - AI & EMEDP -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
                 <div class="calendar-month-card">
                     <div class="calendar-month-header">
@@ -781,18 +915,13 @@
                     </div>
                     <div class="calendar-event">
                         <span class="event-date">Nov 9-20</span>
-                        <h5 class="event-title">AI in Regulatory Supervision</h5>
+                        <h5 class="event-title"><i class="bi bi-star-fill text-gold"></i> AI & Data Analytics in Regulation (Singapore)</h5>
                         <div class="event-location"><i class="bi bi-globe2 text-gold"></i> Singapore</div>
-                    </div>
-                    <div class="calendar-event">
-                        <span class="event-date">Nov 23-27</span>
-                        <h5 class="event-title">Corporate Governance Masterclass</h5>
-                        <div class="event-location"><i class="bi bi-building"></i> Lagos, Nigeria</div>
                     </div>
                 </div>
             </div>
 
-            <!-- December -->
+            <!-- December - Review -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="550">
                 <div class="calendar-month-card">
                     <div class="calendar-month-header">
@@ -809,11 +938,6 @@
                         <h5 class="event-title">Sustainable Finance & ESG Reporting</h5>
                         <div class="event-location"><i class="bi bi-building"></i> Lagos, Nigeria</div>
                     </div>
-                    <div class="calendar-event">
-                        <span class="event-date">Dec 14-18</span>
-                        <h5 class="event-title">Annual Review & Strategic Planning</h5>
-                        <div class="event-location"><i class="bi bi-building"></i> Abuja, Nigeria</div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -823,7 +947,7 @@
             <div class="col-12 text-center">
                 <div class="bg-dark-card p-4 rounded-4 border border-cyan">
                     <i class="bi bi-info-circle-fill text-cyan fs-4 me-2"></i>
-                    <span>Course dates are tentative. Actual dates will be confirmed in the Call for Nominations letters. For group bookings and custom training dates, please contact our training consultants.</span>
+                    <span>Course dates are tentative. Actual dates will be confirmed in the Call for Nominations letters. <i class="bi bi-star-fill text-gold"></i> indicates advanced/specialized programs. For group bookings and custom training dates, please contact our training consultants.</span>
                 </div>
             </div>
         </div>
@@ -835,9 +959,9 @@
     <div class="container">
         <div class="text-center mb-5"><h2 class="gradient-text">What Industry Leaders Say</h2></div>
         <div class="row g-4">
-            <div class="col-md-4"><div class="testimonial-card"><i class="bi bi-chat-quote fs-1 text-cyan"></i><p>"KPI delivered exceptional aligned training. Our compliance team gained practical insights."</p><h6>— Compliance Director, Stockbroking Firm</h6></div></div>
-            <div class="col-md-4"><div class="testimonial-card"><i class="bi bi-chat-quote fs-1 text-cyan"></i><p>"The London international program transformed our perspective on ESG investing."</p><h6>— Head, Investment Banking</h6></div></div>
-            <div class="col-md-4"><div class="testimonial-card"><i class="bi bi-chat-quote fs-1 text-cyan"></i><p>"Comprehensive calendar and expert faculty. should mandate these programs."</p><h6>— Senior Regulator</h6></div></div>
+            <div class="col-md-4"><div class="testimonial-card"><i class="bi bi-chat-quote fs-1 text-cyan"></i><p>"The Advanced Capital Market Regulation course provided invaluable insights into systemic risk oversight."</p><h6>— Director, Securities Commission</h6></div></div>
+            <div class="col-md-4"><div class="testimonial-card"><i class="bi bi-chat-quote fs-1 text-cyan"></i><p>"The FinTech program in Dubai was transformative. The regulatory sandbox frameworks are world-class."</p><h6>— Head, Innovation Hub</h6></div></div>
+            <div class="col-md-4"><div class="testimonial-card"><i class="bi bi-chat-quote fs-1 text-cyan"></i><p>"ESG training gave our team the tools to implement sustainable finance initiatives effectively."</p><h6>— Senior Regulator</h6></div></div>
         </div>
     </div>
 </section>
@@ -858,6 +982,7 @@
                             <p><i class="bi bi-geo-alt-fill text-cyan me-2"></i> BASSAN Plaza, Constitution Ave, Abuja</p>
                         </div>
                     </div>
+                    
                     <div class="col-lg-7 p-5 contact-form-wrapper rounded-end-4">
                         <form method="POST" action="{{ url_for('trainings') }}#contact">
                             <div class="row g-3">
@@ -867,12 +992,17 @@
                                 <div class="col-12">
                                     <select name="program" class="form-select bg-dark text-white border-0" required>
                                         <option value="">Select Program Interest</option>
+                                        <option value="Advanced Capital Market Regulation">Advanced Capital Market Regulation</option>
+                                        <option value="FinTech & Digital Assets">FinTech & Digital Assets</option>
+                                        <option value="ESG & Sustainable Finance">ESG & Sustainable Finance</option>
+                                        <option value="Market Surveillance & Enforcement">Market Surveillance & Enforcement</option>
+                                        <option value="Strategic Leadership">Strategic Leadership</option>
+                                        <option value="AI & Data Analytics in Regulation">AI & Data Analytics in Regulation</option>
                                         <option value="Domestic Training">Domestic Training</option>
                                         <option value="International Program (Abroad)">International Program (Abroad)</option>
-                                        <option value="Custom In-House Training">Custom In-House Training</option>
                                     </select>
                                 </div>
-                                <div class="col-12"><textarea name="message" rows="3" class="form-control bg-dark text-white border-0" placeholder="Tell us your training needs..."></textarea> Message</div>
+                                <div class="col-12"><textarea name="message" rows="3" class="form-control bg-dark text-white border-0" placeholder="Tell us your training needs..."></textarea> Your Message</div>
                                 <div class="col-12"><button type="submit" class="btn btn-gradient w-100"><i class="bi bi-send me-2"></i>Submit Enquiry</button></div>
                             </div>
                         </form>
@@ -887,10 +1017,14 @@
 <footer class="footer py-5">
     <div class="container">
         <div class="row">
-            
+            <div class="col-lg-4 mb-4">
+                <h4 class="gradient-text"><img src="{{ url_for('static', filename='images/kpilogo.png') }}" width="40" class="rounded-circle me-2">KPI Organization Nigeria Ltd</h4>
+                <p>Advanced Training Partner | Regulatory Excellence | Capital Market Capacity Building</p>
+            </div>
             <div class="col-lg-4 mb-4">
                 <h5>Quick Links</h5>
                 <ul class="list-unstyled">
+                    <li><a href="#advanced-topics" class="text-decoration-none text-white-50">Advanced Topics</a></li>
                     <li><a href="#domestic" class="text-decoration-none text-white-50">Domestic Programs</a></li>
                     <li><a href="#international" class="text-decoration-none text-white-50">International Training</a></li>
                     <li><a href="#calendar" class="text-decoration-none text-white-50">2026 Calendar</a></li>
@@ -904,7 +1038,7 @@
         </div>
         <hr class="opacity-25">
         <div class="text-center pt-3">
-            <p>© 2025 KPI Organization Nigeria Ltd </p>
+            <p>© 2025 KPI Organization Nigeria Ltd | Advanced Training Programs | All Rights Reserved</p>
         </div>
     </div>
 </footer>

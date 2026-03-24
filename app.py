@@ -67,7 +67,7 @@ def home():
     
     return render_template('index.html')
 
-@app.route('/trainings.html', methods=['GET', 'POST'])
+@app.route('/trainings', methods=['GET', 'POST'])
 def trainings():
     if request.method == 'POST':
         name = request.form.get('name', '')
