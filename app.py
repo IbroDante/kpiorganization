@@ -16,7 +16,7 @@ app.secret_key = os.getenv('SECRET_KEY')
 # Brevo API Configuration
 BREVO_CONFIG = {
     'api_key': os.getenv('BREVO_API_KEY', ''),
-    'sender_email': os.getenv('BREVO_SENDER_EMAIL', 'mololuwa.ibrahim@gmail.com'),
+    'sender_email': os.getenv('BREVO_SENDER_EMAIL', '929aca001@smtp-brevo.com'),
     'sender_name': 'KPI Organization Nigeria Ltd',
     'recipient_email': os.getenv('BREVO_RECIPIENT_EMAIL', 'info@kpiorganization.ng'),
     'api_url': 'https://api.brevo.com/v3/smtp/email'
@@ -151,23 +151,13 @@ def send_brevo_email(name, email, phone, program, message, form_type='training')
             "subject": subject,
             "htmlContent": email_body,
             "headers": {
-                "X-Mailin-custom": "training_inquiry" if form_type == 'training' else "contact_inquiry",
+                "X-Mailin-custom": "training_inquiry",
                 "X-Entity-Ref-ID": datetime.now().strftime('%Y%m%d%H%M%S')
-            },
-            # Add reply-to so responses go to the customer
-            "replyTo": {
-                "email": email,
-                "name": name
             }
         }
         
         # Optional: Add CC or BCC if needed
         # payload["cc"] = [{"email": "backup@kpiorganization.ng", "name": "Backup"}]
-        
-        print(f"🔄 Attempting to send email via Brevo...")
-        print(f"   From: {BREVO_CONFIG['sender_email']}")
-        print(f"   To: {BREVO_CONFIG['recipient_email']}")
-        print(f"   Subject: {subject}")
         
         # Make the API request to Brevo
         headers = {
@@ -183,37 +173,18 @@ def send_brevo_email(name, email, phone, program, message, form_type='training')
             timeout=30
         )
         
-        # Log the full response for debugging
-        print(f"📊 Brevo API Response Status: {response.status_code}")
-        
         if response.status_code == 201:
-            response_data = response.json()
-            message_id = response_data.get('messageId', 'N/A')
-            print(f"✓ Email sent successfully via Brevo!")
-            print(f"  Recipient: {BREVO_CONFIG['recipient_email']}")
-            print(f"  Message ID: {message_id}")
-            print(f"  Tip: Check spam folder if not received within 5 minutes")
+            print(f"✓ Email sent successfully via Brevo to {BREVO_CONFIG['recipient_email']}")
             return True
         else:
-            print(f"✗ Brevo API error: {response.status_code}")
-            print(f"  Error details: {response.text}")
-            try:
-                error_data = response.json()
-                if 'message' in error_data:
-                    print(f"  Error message: {error_data['message']}")
-                if 'code' in error_data:
-                    print(f"  Error code: {error_data['code']}")
-            except:
-                pass
+            print(f"✗ Brevo API error: {response.status_code} - {response.text}")
             return False
             
     except requests.exceptions.RequestException as e:
-        print(f"✗ Network error while contacting Brevo: {e}")
+        print(f"✗ Network error: {e}")
         return False
     except Exception as e:
-        print(f"✗ Unexpected email error: {type(e).__name__} - {e}")
-        import traceback
-        traceback.print_exc()
+        print(f"✗ Email error: {e}")
         return False
 
 @app.route('/', methods=['GET', 'POST'])
@@ -262,33 +233,5 @@ def training_category(program_type):
     """Optional: Route for filtering training programs by category"""
     return render_template('trainings.html', active_category=program_type)
 
-@app.route('/test-email')
-def test_email():
-    """Test endpoint to verify email configuration"""
-    result = send_brevo_email(
-        name="Test User",
-        email="test@example.com",
-        phone="+234 123 456 7890",
-        program="Test Program",
-        message="This is a test email from the KPI Organization system.",
-        form_type='training'
-    )
-    
-    if result:
-        return "✓ Test email sent successfully! Check the console logs and your inbox."
-    else:
-        return "✗ Test email failed. Check the console logs for details."
-
 if __name__ == '__main__':
-    # Print configuration on startup (without showing sensitive API key)
-    print("="*60)
-    print("🚀 KPI Organization Flask App Starting...")
-    print("="*60)
-    print(f"Brevo Sender Email: {BREVO_CONFIG['sender_email']}")
-    print(f"Brevo Recipient Email: {BREVO_CONFIG['recipient_email']}")
-    print(f"Brevo API Key Configured: {'Yes ✓' if BREVO_CONFIG['api_key'] else 'No ✗'}")
-    print(f"Secret Key Configured: {'Yes ✓' if app.secret_key else 'No ✗'}")
-    print("="*60)
-    print("\n💡 Test the email system at: http://127.0.0.1:5000/test-email\n")
-    
     app.run(debug=True)
