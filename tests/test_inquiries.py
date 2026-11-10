@@ -63,6 +63,33 @@ class InquiryTests(unittest.TestCase):
                 self.assertEqual(self.client.post('/api/training-inquiry', json=data).status_code, 400)
         post.assert_not_called()
 
+    def test_cors_preflight_and_post_for_trusted_static_site(self):
+        origin = 'https://kpiorganization.ng'
+        headers = {'Origin': origin, 'Access-Control-Request-Method': 'POST',
+                   'Access-Control-Request-Headers': 'content-type'}
+        preflight = self.client.options('/api/training-inquiry', headers=headers)
+        self.assertEqual(preflight.status_code, 200)
+        self.assertEqual(preflight.headers['Access-Control-Allow-Origin'], origin)
+        self.assertIn('POST', preflight.headers['Access-Control-Allow-Methods'])
+        self.assertIn('Content-Type', preflight.headers['Access-Control-Allow-Headers'])
+        with patch('app.requests.post') as post:
+            post.return_value.status_code = 201
+            response = self.client.post('/api/training-inquiry', json=self.form, headers={'Origin': origin})
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.headers['Access-Control-Allow-Origin'], origin)
+        self.assertIn('Origin', response.headers['Vary'])
+
+    def test_cors_rejects_untrusted_origins_and_accepts_configured_origin(self):
+        untrusted = self.client.options('/api/training-inquiry', headers={'Origin': 'https://evil.example'})
+        self.assertNotIn('Access-Control-Allow-Origin', untrusted.headers)
+        with patch.dict('os.environ', {'ALLOWED_ORIGINS': 'https://site.example, https://other.example/'}):
+            trusted = self.client.options('/api/training-inquiry', headers={'Origin': 'https://other.example'})
+            self.assertEqual(trusted.headers['Access-Control-Allow-Origin'], 'https://other.example')
+            default = self.client.options('/api/training-inquiry', headers={'Origin': 'https://kpiorganization.ng'})
+            self.assertNotIn('Access-Control-Allow-Origin', default.headers)
+        other_route = self.client.get('/api/not-found', headers={'Origin': 'https://kpiorganization.ng'})
+        self.assertNotIn('Access-Control-Allow-Origin', other_route.headers)
+
     def test_unknown_api_route_is_not_html(self):
         response = self.client.get('/api/not-found')
         self.assertEqual(response.status_code, 404)
