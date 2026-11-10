@@ -1,0 +1,369 @@
+{
+  "topics": [
+    {
+      "title": "Advanced Capital Market Regulation & Systemic Risk Oversight",
+      "description": "Focus on macroprudential regulation, cross-market linkages, and early warning systems for financial instability.",
+      "features": [
+        "Monitoring systemic risks across equities, bonds, and derivatives",
+        "Stress testing frameworks and crisis response strategies",
+        "Alignment with IOSCO principles"
+      ]
+    },
+    {
+      "title": "Financial Technology (FinTech), Digital Assets & Regulatory Sandboxing",
+      "description": "Equips leadership to regulate emerging technologies without stifling innovation.",
+      "features": [
+        "Blockchain, tokenization, and digital asset regulation",
+        "Regulatory sandbox frameworks and innovation hubs",
+        "Oversight of crowdfunding, robo-advisory, and AI-driven trading"
+      ]
+    },
+    {
+      "title": "Corporate Governance, ESG & Sustainable Finance",
+      "description": "Addresses evolving expectations on transparency and sustainability in capital markets.",
+      "features": [
+        "Environmental, Social, and Governance (ESG) disclosure standards",
+        "Climate risk reporting and green finance instruments",
+        "Board effectiveness and executive accountability"
+      ]
+    },
+    {
+      "title": "Market Surveillance, Enforcement & Investigation Techniques",
+      "description": "Enhances capacity to detect and prosecute market abuses.",
+      "features": [
+        "Insider trading and market manipulation detection systems",
+        "Use of data analytics and AI in surveillance",
+        "Enforcement strategy and litigation management"
+      ]
+    },
+    {
+      "title": "Strategic Leadership, Policy Development & Stakeholder Engagement",
+      "description": "Strengthens executive decision-making and institutional leadership.",
+      "features": [
+        "Policy formulation in a dynamic regulatory environment",
+        "Stakeholder management (government, investors, international bodies)",
+        "Change management and organizational transformation"
+      ]
+    },
+    {
+      "title": "AI & Data Analytics in Financial Regulation",
+      "description": "Leverage artificial intelligence for enhanced regulatory oversight.",
+      "features": [
+        "Machine learning for fraud detection",
+        "Predictive analytics for market monitoring",
+        "AI-driven compliance automation"
+      ]
+    }
+  ],
+  "courses": {
+    "domestic": [
+      {
+        "title": "Advanced Capital Market Regulation & Systemic Risk Oversight",
+        "description": "Macroprudential regulation, cross-market linkages, stress testing, and IOSCO alignment.",
+        "image": "https://images.pexels.com/photos/6802042/pexels-photo-6802042.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "badge": "Advanced",
+        "date": "Mar 9-13, 2026",
+        "details": [
+          "Lagos, Nigeria",
+          "CPD: 30 Units"
+        ]
+      },
+      {
+        "title": "FinTech, Digital Assets & Regulatory Sandboxing",
+        "description": "Blockchain regulation, tokenization, sandbox frameworks, AI-driven trading oversight.",
+        "image": "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "badge": "FinTech",
+        "date": "Apr 20-24, 2026",
+        "details": [
+          "Lagos, Nigeria",
+          "CPD: 25 Units"
+        ]
+      },
+      {
+        "title": "Corporate Governance, ESG & Sustainable Finance",
+        "description": "ESG disclosure, climate risk reporting, green finance, board effectiveness.",
+        "image": "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "badge": "ESG",
+        "date": "Jun 22-26, 2026",
+        "details": [
+          "Abuja, Nigeria",
+          "CPD: 25 Units"
+        ]
+      }
+    ],
+    "international": [
+      {
+        "title": "Market Surveillance, Enforcement & Investigation",
+        "description": "FCA collaboration, insider trading detection, AI surveillance systems, enforcement strategies.",
+        "image": "https://images.pexels.com/photos/257699/pexels-photo-257699.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "badge": "London, UK",
+        "date": "June 8-19, 2026",
+        "details": [
+          "CPD: 40 Units"
+        ]
+      },
+      {
+        "title": "Digital Assets, DeFi & Regulatory Innovation",
+        "description": "DIFC Academy, crypto regulation, DeFi oversight, regulatory sandbox frameworks.",
+        "image": "https://images.pexels.com/photos/260689/pexels-photo-260689.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "badge": "Dubai, UAE",
+        "date": "Sep 14-25, 2026",
+        "details": [
+          "CPD: 35 Units"
+        ]
+      },
+      {
+        "title": "Strategic Leadership & Policy Development",
+        "description": "IMF-World Bank collaboration, policy formulation, stakeholder engagement, organizational transformation.",
+        "image": "https://images.pexels.com/photos/1267696/pexels-photo-1267696.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "badge": "Washington DC, USA",
+        "date": "Oct 12-23, 2026",
+        "details": []
+      },
+      {
+        "title": "AI & Data Analytics in Financial Regulation",
+        "description": "MAS frameworks, machine learning for fraud detection, predictive analytics, AI-driven compliance.",
+        "image": "https://images.pexels.com/photos/6770610/pexels-photo-6770610.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "badge": "Singapore",
+        "date": "Nov 9-20, 2026",
+        "details": []
+      }
+    ]
+  },
+  "calendar": [
+    {
+      "month": "JANUARY",
+      "quarter": "Q1 2026",
+      "events": [
+        {
+          "date": "Jan 19-23",
+          "title": "Strategic Leadership & Policy Development",
+          "location": "Abuja, Nigeria",
+          "advanced": false
+        },
+        {
+          "date": "Jan 26-30",
+          "title": "Introduction to Capital Markets",
+          "location": "Virtual",
+          "advanced": false
+        }
+      ]
+    },
+    {
+      "month": "FEBRUARY",
+      "quarter": "Q1 2026",
+      "events": [
+        {
+          "date": "Feb 9-13",
+          "title": "Investment & Portfolio Management",
+          "location": "Lagos, Nigeria",
+          "advanced": false
+        },
+        {
+          "date": "Feb 16-20",
+          "title": "Corporate Governance & Board Effectiveness",
+          "location": "Lagos, Nigeria",
+          "advanced": false
+        }
+      ]
+    },
+    {
+      "month": "MARCH",
+      "quarter": "Q1 2026",
+      "events": [
+        {
+          "date": "Mar 2-13",
+          "title": "Foundations of Modern Banking Supervision",
+          "location": "Lagos, Nigeria",
+          "advanced": false
+        },
+        {
+          "date": "Mar 9-13",
+          "title": "Advanced Capital Market Regulation & Systemic Risk",
+          "location": "Lagos, Nigeria",
+          "advanced": true
+        }
+      ]
+    },
+    {
+      "month": "APRIL",
+      "quarter": "Q2 2026",
+      "events": [
+        {
+          "date": "Apr 13-17",
+          "title": "Public Expenditure Management",
+          "location": "Accra, Ghana",
+          "advanced": false
+        },
+        {
+          "date": "Apr 20-24",
+          "title": "FinTech, Digital Assets & Regulatory Sandboxing",
+          "location": "Lagos, Nigeria",
+          "advanced": true
+        },
+        {
+          "date": "Apr 27-May 1",
+          "title": "Exchange Rate Policies",
+          "location": "Monrovia, Liberia",
+          "advanced": false
+        }
+      ]
+    },
+    {
+      "month": "MAY",
+      "quarter": "Q2 2026",
+      "events": [
+        {
+          "date": "May 4-8",
+          "title": "DSF-LIC Debt Sustainability (WB/IMF)",
+          "location": "Abuja, Nigeria",
+          "advanced": false
+        },
+        {
+          "date": "May 11-15",
+          "title": "AML/CFT Strategies & Illicit Finance",
+          "location": "Freetown, Sierra Leone",
+          "advanced": false
+        },
+        {
+          "date": "May 18-22",
+          "title": "Advanced Monetary & Financial Statistics",
+          "location": "Blended",
+          "advanced": false
+        }
+      ]
+    },
+    {
+      "month": "JUNE",
+      "quarter": "Q2 2026",
+      "events": [
+        {
+          "date": "June 8-19",
+          "title": "Market Surveillance & Enforcement (London)",
+          "location": "London, UK",
+          "advanced": true
+        },
+        {
+          "date": "June 15-19",
+          "title": "Financial Inclusion & Microfinance",
+          "location": "Abuja, Nigeria",
+          "advanced": false
+        },
+        {
+          "date": "June 22-26",
+          "title": "ESG & Sustainable Finance",
+          "location": "Abuja, Nigeria",
+          "advanced": true
+        }
+      ]
+    },
+    {
+      "month": "JULY",
+      "quarter": "Q3 2026",
+      "events": [
+        {
+          "date": "July 6-10",
+          "title": "Modern Financial Reporting (IFRS/FSI)",
+          "location": "Banjul, Gambia",
+          "advanced": false
+        },
+        {
+          "date": "July 13-24",
+          "title": "EMEDP Module II - Intermediate Econometrics",
+          "location": "Abuja, Nigeria",
+          "advanced": false
+        }
+      ]
+    },
+    {
+      "month": "AUGUST",
+      "quarter": "Q3 2026",
+      "events": [
+        {
+          "date": "Aug 3-7",
+          "title": "Public Sector Debt Statistics",
+          "location": "Banjul, Gambia",
+          "advanced": false
+        },
+        {
+          "date": "Aug 10-14",
+          "title": "AI & Data Analytics in Financial Regulation",
+          "location": "Lagos, Nigeria",
+          "advanced": true
+        }
+      ]
+    },
+    {
+      "month": "SEPTEMBER",
+      "quarter": "Q3 2026",
+      "events": [
+        {
+          "date": "Sep 7-18",
+          "title": "Advanced Banking Supervision (Level II)",
+          "location": "Lagos, Nigeria",
+          "advanced": false
+        },
+        {
+          "date": "Sep 14-25",
+          "title": "Digital Assets, DeFi & Regulatory Innovation (Dubai)",
+          "location": "Dubai, UAE",
+          "advanced": true
+        }
+      ]
+    },
+    {
+      "month": "OCTOBER",
+      "quarter": "Q4 2026",
+      "events": [
+        {
+          "date": "Oct 5-9",
+          "title": "Currency Management & Fintech",
+          "location": "Abuja, Nigeria",
+          "advanced": false
+        },
+        {
+          "date": "Oct 12-23",
+          "title": "Strategic Leadership & Policy Development (Washington DC)",
+          "location": "Washington DC, USA",
+          "advanced": true
+        }
+      ]
+    },
+    {
+      "month": "NOVEMBER",
+      "quarter": "Q4 2026",
+      "events": [
+        {
+          "date": "Nov 9-20",
+          "title": "EMEDP Module III - Bayesian Econometrics",
+          "location": "Lagos, Nigeria",
+          "advanced": false
+        },
+        {
+          "date": "Nov 9-20",
+          "title": "AI & Data Analytics in Regulation (Singapore)",
+          "location": "Singapore",
+          "advanced": true
+        }
+      ]
+    },
+    {
+      "month": "DECEMBER",
+      "quarter": "Q4 2026",
+      "events": [
+        {
+          "date": "Dec 1-5",
+          "title": "Global Financial Trends & Future Markets",
+          "location": "Virtual",
+          "advanced": false
+        },
+        {
+          "date": "Dec 7-11",
+          "title": "Sustainable Finance & ESG Reporting",
+          "location": "Lagos, Nigeria",
+          "advanced": false
+        }
+      ]
+    }
+  ]
+}
