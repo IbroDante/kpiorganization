@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import Flask, request, jsonify, send_from_directory
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import os
+from html import escape
 import requests
 import json
 from datetime import datetime
@@ -29,6 +30,8 @@ def send_brevo_email(name, email, phone, program, message, form_type='training')
         return False
 
     try:
+        # Escape user-provided values before embedding them in HTML email.
+        name, email, phone, program, message = (escape(str(value), quote=True) for value in (name, email, phone, program, message))
         # Determine subject and template based on form type
         if form_type == 'training':
             subject = f"New Training Inquiry: {program} - {name}"
@@ -187,51 +190,27 @@ def send_brevo_email(name, email, phone, program, message, form_type='training')
         print(f"✗ Email error: {e}")
         return False
 
-@app.route('/', methods=['GET', 'POST'])
-def home():
-    if request.method == 'POST':
-        name = request.form.get('name', '')
-        email = request.form.get('email', '')
-        message = request.form.get('message', '')
-        service = request.form.get('service', 'General Inquiry')
-        
-        # Send email via Brevo
-        email_sent = send_brevo_email(name, email, '', service, message, form_type='contact')
-        
-        if email_sent:
-            flash('Thank you for your message! We will get back to you soon.', 'success')
-        else:
-            flash('Your message was received but there was a technical issue. Our team will contact you manually.', 'warning')
-        
-        return redirect(url_for('home') + '#contact')
-    
-    return render_template('index.html')
+@app.post('/api/training-inquiry')
+def training_inquiry():
+    data = request.get_json(silent=True) or {}
+    name = str(data.get('name', '')).strip()
+    email = str(data.get('email', '')).strip()
+    program = str(data.get('program', '')).strip()
+    if not name or not email or not program:
+        return jsonify(message='Please provide your name, email and program interest.'), 400
+    sent = send_brevo_email(name, email, str(data.get('phone', '')), program, str(data.get('message', '')), form_type='training')
+    if sent:
+        return jsonify(message='Thank you for your training inquiry! Our training consultant will contact you within 24 hours.')
+    return jsonify(message='We could not send your enquiry. Please try again or email info@kpiorganization.ng.'), 503
 
-@app.route('/trainings', methods=['GET', 'POST'])
-def trainings():
-    if request.method == 'POST':
-        name = request.form.get('name', '')
-        email = request.form.get('email', '')
-        phone = request.form.get('phone', '')
-        program = request.form.get('program', 'Not specified')
-        message = request.form.get('message', '')
-        
-        # Send email via Brevo
-        email_sent = send_brevo_email(name, email, phone, program, message, form_type='training')
-        
-        if email_sent:
-            flash('Thank you for your training inquiry! Our training consultant will contact you within 24 hours.', 'success')
-        else:
-            flash('Your inquiry has been recorded. Our team will contact you shortly.', 'info')
-        
-        return redirect(url_for('trainings') + '#contact')
-    
-    return render_template('trainings.html')
-
-@app.route('/trainings/<program_type>')
-def training_category(program_type):
-    """Optional: Route for filtering training programs by category"""
-    return render_template('trainings.html', active_category=program_type)
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def react_app(path):
+    # Serve built React assets and allow direct navigation to React routes.
+    dist = os.path.join(app.root_path, 'dist')
+    if path and os.path.isfile(os.path.join(dist, path)):
+        return send_from_directory(dist, path)
+    return send_from_directory(dist, 'index.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
