@@ -1,12 +1,10 @@
 from flask import Flask, request, jsonify, send_from_directory
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
 import os
 from html import escape
 import requests
-import json
 from datetime import datetime
+from uuid import uuid4
+from email.utils import parseaddr
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -30,11 +28,14 @@ def send_brevo_email(name, email, phone, program, message, form_type='training')
         return False
 
     try:
-        # Escape user-provided values before embedding them in HTML email.
+        # Keep the original address and subject text for Brevo. Escape only the
+        # values embedded in HTML so names such as O'Brien remain readable.
+        reply_email = email
+        subject = (f"New Training Inquiry: {program} - {name}" if form_type == 'training'
+                   else f"New Contact Form Inquiry: {name}")
         name, email, phone, program, message = (escape(str(value), quote=True) for value in (name, email, phone, program, message))
-        # Determine subject and template based on form type
+        # Determine template based on form type
         if form_type == 'training':
-            subject = f"New Training Inquiry: {program} - {name}"
             email_body = f"""
             <!DOCTYPE html>
             <html>
@@ -90,7 +91,6 @@ def send_brevo_email(name, email, phone, program, message, form_type='training')
             </html>
             """
         else:
-            subject = f"New Contact Form Inquiry: {name}"
             email_body = f"""
             <!DOCTYPE html>
             <html>
@@ -152,10 +152,11 @@ def send_brevo_email(name, email, phone, program, message, form_type='training')
                 }
             ],
             "subject": subject,
+            "replyTo": {"email": reply_email},
             "htmlContent": email_body,
             "headers": {
                 "X-Mailin-custom": "training_inquiry",
-                "X-Entity-Ref-ID": datetime.now().strftime('%Y%m%d%H%M%S')
+                "X-Entity-Ref-ID": uuid4().hex
             }
         }
         
@@ -172,7 +173,7 @@ def send_brevo_email(name, email, phone, program, message, form_type='training')
         response = requests.post(
             BREVO_CONFIG['api_url'],
             headers=headers,
-            data=json.dumps(payload),
+            json=payload,
             timeout=30
         )
         
@@ -180,7 +181,7 @@ def send_brevo_email(name, email, phone, program, message, form_type='training')
             print(f"✓ Email sent successfully via Brevo to {BREVO_CONFIG['recipient_email']}")
             return True
         else:
-            print(f"✗ Brevo API error: {response.status_code} - {response.text}")
+            app.logger.error("Brevo rejected enquiry (HTTP %s). Check the API key and verified sender configuration.", response.status_code)
             return False
             
     except requests.exceptions.RequestException as e:
@@ -192,13 +193,20 @@ def send_brevo_email(name, email, phone, program, message, form_type='training')
 
 @app.post('/api/training-inquiry')
 def training_inquiry():
-    data = request.get_json(silent=True) or {}
-    name = str(data.get('name', '')).strip()
-    email = str(data.get('email', '')).strip()
-    program = str(data.get('program', '')).strip()
-    if not name or not email or not program:
-        return jsonify(message='Please provide your name, email and program interest.'), 400
-    sent = send_brevo_email(name, email, str(data.get('phone', '')), program, str(data.get('message', '')), form_type='training')
+    data = request.get_json(silent=True)
+    if not isinstance(data, dict):
+        return jsonify(message='Please provide your enquiry details.'), 400
+    fields = {key: data.get(key, '') for key in ('name', 'email', 'phone', 'program', 'message')}
+    if any(not isinstance(value, str) for value in fields.values()):
+        return jsonify(message='Please provide valid enquiry details.'), 400
+    fields = {key: value.strip() for key, value in fields.items()}
+    name, email, program = fields['name'], fields['email'], fields['program']
+    if (not name or not program or not email or parseaddr(email)[1] != email
+            or '@' not in email or any(c in name + email + program for c in '\r\n')):
+        return jsonify(message='Please provide your name, a valid email and program interest.'), 400
+    if any(len(value) > limit for value, limit in ((name, 200), (email, 254), (program, 200), (fields['phone'], 100), (fields['message'], 10000))):
+        return jsonify(message='One or more enquiry fields are too long.'), 400
+    sent = send_brevo_email(name, email, fields['phone'], program, fields['message'], form_type='training')
     if sent:
         return jsonify(message='Thank you for your training inquiry! Our training consultant will contact you within 24 hours.')
     return jsonify(message='We could not send your enquiry. Please try again or email info@kpiorganization.ng.'), 503
@@ -207,6 +215,8 @@ def training_inquiry():
 @app.route('/<path:path>')
 def react_app(path):
     # Serve built React assets and allow direct navigation to React routes.
+    if path == 'api' or path.startswith('api/'):
+        return jsonify(message='API endpoint not found.'), 404
     dist = os.path.join(app.root_path, 'dist')
     if path and os.path.isfile(os.path.join(dist, path)):
         return send_from_directory(dist, path)
