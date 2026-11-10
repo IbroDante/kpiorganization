@@ -12,6 +12,25 @@ load_dotenv()
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY')
 
+# The React site can run separately as a Render Static Site. Only explicitly
+# trusted browser origins can read API responses; no API key is exposed.
+DEFAULT_ALLOWED_ORIGINS = 'https://kpiorganization.ng,https://www.kpiorganization.ng'
+
+
+@app.after_request
+def allow_site_origin(response):
+    if request.path == '/api/training-inquiry':
+        response.vary.add('Origin')
+        allowed = {origin.strip().rstrip('/') for origin in
+                   os.getenv('ALLOWED_ORIGINS', DEFAULT_ALLOWED_ORIGINS).split(',')
+                   if origin.strip()}
+        origin = request.headers.get('Origin')
+        if origin in allowed:
+            response.headers['Access-Control-Allow-Origin'] = origin
+            response.headers['Access-Control-Allow-Methods'] = 'POST, OPTIONS'
+            response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
+    return response
+
 # Brevo API Configuration
 BREVO_CONFIG = {
     'api_key': os.getenv('BREVO_API_KEY', ''),
